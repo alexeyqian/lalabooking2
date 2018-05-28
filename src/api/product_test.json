@@ -1,0 +1,115 @@
+{
+    "Code": "0",
+    "Result": {
+        "Hotels": [
+            {
+                "HotelID": "40101006",
+                "Suppliers": [
+                    {
+                        "HotelCode": "90042369",
+                        "WeekendStart": 5,
+                        "WeekendEnd": 7,
+                        "BookingRules": [
+                            {
+                                "TypeCode": "PerRoomPerName",
+                                "RoomTypeIds": "all",
+                                "DateType": "BookDay",
+                                "StartDate": "2014-02-13T00:00:00 08:00",
+                                "EndDate": "2064-02-13T00:00:00 08:00",
+                                "StartHour": "00:00",
+                                "EndHour": "23:59",
+                                "Description": "酒店要求每个房间至少提供一名入住客人的姓名"
+                            }
+                        ],
+                        "Rooms": [
+                            {
+                                "RoomTypeId": "0001",
+                                "RoomId": "1131",
+                                "Status": true
+                            }
+                        ],
+                        "InvoiceMode": "Elong"
+                    }
+                ],
+                "RatePlans": [
+                    {
+                        "HotelCode": "40101006",
+                        "RoomTypeIds": "1161,1168,1170,1179",
+                        "CustomerType": "All",
+                        "IsLimitTimeSale": false,
+                        "StartTime": "00:00:00",
+                        "EndTime": "23:59:00",
+                        "MinAdvHours": 0,
+                        "MaxAdvHours": 8760,
+                        "GuaranteeRules": [],
+                        "ValueAdds": [
+                            {
+                                "TypeCode": "01",
+                                "IsInclude": false,
+                                "Amount": 0,
+                                "PriceOption": "Money",
+                                "Price": 0,
+                                "IsExtAdd": true,
+                                "ExtOption": "Money",
+                                "ExtPrice": 50,
+                                "Description": "附加服务：单加1份早餐 50.0 元"
+                            }
+                        ],
+                        "DrrRules": [],
+                        "CustomerLevel": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                        ],
+                        "CooperationType": 1,
+                        "RatePlanId": 106674,
+                        "RatePlanName": "不含早餐",
+                        "MinAmount": 1,
+                        "MinDays": 1,
+                        "MaxDays": 365,
+                        "PaymentType": "SelfPay"
+                    }
+                ],
+                "Gifts": [
+                    {
+                        "HotelGiftId": 1128,
+                        "HotelCode": "90042369",
+                        "RelatedProducts": [
+                            {
+                                "RoomTypeIds": "0004",
+                                "RatePlanId": 375036
+                            },
+                            {
+                                "RoomTypeIds": "0004",
+                                "RatePlanId": 375038
+                            },
+                            {
+                                "RoomTypeIds": "0004",
+                                "RatePlanId": 375039
+                            }
+                        ],
+                        "EffectiveDates": [
+                            {
+                                "StartDate": "2016-08-01T00:00:00 08:00",
+                                "EndDate": "2017-08-31T00:00:00 08:00"
+                            }
+                        ],
+                        "DateType": "CheckinDate",
+                        "WeekSet": "1,2,3,4,5,6,7",
+                        "GiftContent": "礼包测试",
+                        "GiftContentEn": "",
+                        "GiftTypes": "",
+                        "HourNumber": 0,
+                        "HourType": "Hours24",
+                        "WayOfGiving": "EveryRoom",
+                        "WayOfGivingOther": "",
+                        "WayOfGivingOtherEn": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "Guid": "e686bd6f-129e-416d-9ee7-982fde323d33"
+}

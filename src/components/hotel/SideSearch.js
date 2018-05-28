@@ -6,7 +6,7 @@ import moment from 'moment';
 import Cookies from 'js-cookie';
 import 'react-datepicker/dist/react-datepicker.css';
 
-class HomeSearchComponent extends React.Component {
+class SideSearchComponent extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -196,59 +196,68 @@ class HomeSearchComponent extends React.Component {
       defaultDestination = Cookies.get('destination');
 
     return (
-      <div className="form-row">
+      <div className="form">
 
-        <div className="form-group col-md-4">
+        <div className="col-xs-12 form-group">
           <label htmlFor="destination">Destination</label>
           <input type="text" className="form-control" id="destination" name="destination"
                  ref={(input) => this.destination = input} defaultValue={defaultDestination}
                  placeholder="Where to?" tabIndex="3"/>
         </div>
 
-        <div className="form-group col-md-2">
-          <label htmlFor="checkin">Check-in</label>
-          <DatePicker selected={this.state.checkin}
-                      onChange={this.handleChangeCheckin}
-                      className="form-control"
-                      placeholderText="Check in (optional)"/>
+        <div className="form-row">
+          <div className="col">
+            <div className="form-group">
+              <label htmlFor="checkin">Check-in</label>
+              <DatePicker selected={this.state.checkin}
+                          onChange={this.handleChangeCheckin}
+                          className="form-control"
+                          placeholderText="Check in (optional)"/>
+            </div>
+          </div>
+          <div className="col">
+            <div className="form-group">
+              <label htmlFor="checkout">Check-out</label>
+              <DatePicker selected={this.state.checkout}
+                          onChange={this.handleChangeCheckout}
+                          className="form-control"
+                          placeholderText="Check out"/>
+            </div>
+          </div>
         </div>
 
-        <div className="form-group col-md-2">
-          <label htmlFor="checkout">Check-out</label>
-          <DatePicker selected={this.state.checkout}
-                      onChange={this.handleChangeCheckout}
-                      className="form-control"
-                      placeholderText="Check out"/>
+        <div className="form-row">
+          <div className="col">
+            <div className="form-group">
+              <label htmlFor="adults">Adults</label>
+              <select className="form-control" name="adults" value={this.state.adults}
+                      onChange={this.handleInputChange}  tabIndex="6">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+          <div className="col">
+            <div className="form-group">
+              <label htmlFor="children">Children</label>
+              <select className="form-control" name="children" value={this.state.children}
+                      onChange={this.handleInputChange}  tabIndex="7">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div className="form-group col-md-1">
-          <label htmlFor="adults">Adults</label>
-          <select className="form-control" name="adults" value={this.state.adults}
-                  onChange={this.handleInputChange}  tabIndex="6">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-
-        <div className="form-group col-md-1">
-          <label htmlFor="children">Children</label>
-          <select className="form-control" name="children" value={this.state.children}
-                  onChange={this.handleInputChange}  tabIndex="7">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-
-        <div className="form-group col-md-2">
-          <label htmlFor="search">&nbsp;</label>
+        <div className="col-xs-12 form-group">
           <button id="search" name="search" className="btn btn-success form-control" type="button"
                   onClick={this.handleSubmit}  tabIndex="8">Search</button>
         </div>
@@ -268,4 +277,4 @@ function mapStateToProps(state){
   };
 }
 
-export default connect(mapStateToProps)(HomeSearchComponent);
+export default connect(mapStateToProps)(SideSearchComponent);

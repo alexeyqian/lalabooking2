@@ -1,0 +1,98 @@
+[
+  {
+  	"room_type_id": "10001",
+  	"room_type_name": "Business King Room",
+  	"description:" "king bed: 150cm*200cm or Twin bed: 110cm * 200cm, Internet: free wifi / free wired",
+  	"default_photo": "http://pavo.elongstatic.com/i/Hotel120_120/0000pT7L.jpg",
+  	"photos": [
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSWQ.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSTW.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSTs.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSTj.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSNO.jpg"
+  	],
+  	"capacity": 2,
+  	"bed_type": "king",
+  	"facilities": [267,63,65],
+  	"floor": "4-9,11",
+  	"sqm": "22",
+  	"comments": "",
+  	"products": [
+  		{
+  			"product_id": "10001-001",
+  			"product_name": "Discount",
+  			"supplier": "elong",
+  			"breakfast": "For 2",
+  			"cancellation_policy": "Free Cancellation",
+  			"price": 618,
+  			"currency": "RMB"
+  		},
+  		{
+  			"product_id": "10001-002",
+  			"product_name": "Standard Price",
+  			"supplier": "elong",
+  			"breakfast": "For 1",
+  			"cancellation_policy": "Free Cancellation",
+  			"price": 618,
+  			"currency": "RMB"
+  		},
+  		{
+  			"product_id": "10001-003",
+  			"product_name": "Discount",
+  			"supplier": "elong",
+  			"breakfast": "For 2",
+  			"cancellation_policy": "No Cancellation",
+  			"price": 618,
+  			"currency": "RMB"
+  		}
+  	]	
+  },
+  {
+  	"room_type_id": "20001",
+  	"room_type_name": "Business King Room",
+  	"description:" "king bed: 150cm*200cm or Twin bed: 110cm * 200cm, Internet: free wifi / free wired",
+  	"default_photo": "http://pavo.elongstatic.com/i/Hotel120_120/0000pSL9.jpg",
+  	"photos": [
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSWQ.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSTW.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSTs.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSTj.jpg",
+  		"http://pavo.elongstatic.com/i/Hotel350_350/0000pSNO.jpg"
+  	],
+  	"capacity": 2,
+  	"bed_type": "king",
+  	"facilities": [267,63,65],
+  	"floor": "4-9,11",
+  	"sqm": "22",
+  	"comments": "",
+  	"products": [
+  		{
+  			"product_id": "20001-001",
+  			"product_name": "Discount",
+  			"supplier": "elong",
+  			"breakfast": "For 2",
+  			"cancellation_policy": "Free Cancellation",
+  			"price": 618,
+  			"currency": "RMB"
+  		},
+  		{
+  			"product_id": "20001-002",
+  			"product_name": "Standard Price",
+  			"supplier": "elong",
+  			"breakfast": "For 1",
+  			"cancellation_policy": "Free Cancellation",
+  			"price": 618,
+  			"currency": "RMB"
+  		},
+  		{
+  			"product_id": "20001-003",
+  			"product_name": "Discount",
+  			"supplier": "elong",
+  			"breakfast": "For 2",
+  			"cancellation_policy": "No Cancellation",
+  			"price": 618,
+  			"currency": "RMB"
+  		}
+  	]	
+  }
+]

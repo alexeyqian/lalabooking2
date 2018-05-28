@@ -1,0 +1,134 @@
+@import "variables";
+@import "fixes";
+@import "react-datepicker-fix";
+@import "loader";
+@import "jqcomponent";
+@import "filters";
+@import "hotel-detail";
+@import "minislider";
+@import "ministepsbar";
+@import "miniab";
+@import "miniexpandable";
+
+
+/* Fix react date picker size */
+.react-datepicker-wrapper, .react-datepicker__input-container, .react-datepicker__input-container {
+  width: 100%;
+}
+
+/* Common Styles*/
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+.fixed {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    -webkit-backface-visibility: hidden;
+    /*--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Most Important*/
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-botton-5 {
+    margin-bottom: 5px;
+}
+
+.margin-botton-10 {
+    margin-bottom: 10px;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.error {
+    color: red;
+}
+
+.field-validation-error {
+    color: #d26a5c;
+}
+
+.text-white {
+    color: white;
+}
+
+.bg-default {
+    background-color: #5c90d2;
+}
+
+.bg-default-dark {
+    background-color: #3e4a59;
+}
+
+.green-thick-border {
+    border-width: 3px !important;
+    border-color: green !important;
+}
+
+.red-thick-border {
+    border-width: 3px !important;
+    border-color: red !important;
+}
+
+/* Layout styles */
+.header{
+  padding: 10px 0px;
+}
+
+.header-menu{
+  float: right;
+}
+
+.header-container {
+    margin-bottom: 0px !important;
+}
+
+    .header-container .navbar-brand {
+        padding: 2px 0px;
+        padding-right: 10px;
+    }
+
+.logo-text {
+    color: white;
+    font-size: 25px;
+    height: 48px;
+    line-height: 48px;
+    font-weight: bold;
+}
+
+.footer-container {
+    padding: 10px 0px;
+    background-color: #222;
+}
+
+    .footer-container a {
+        color: white;
+    }
+
+    .footer-container .copyright {
+        font-size: 12px;
+        color: grey;
+    }

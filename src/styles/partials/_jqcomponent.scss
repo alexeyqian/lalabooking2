@@ -1,0 +1,36 @@
+.short-full-block{
+  position: relative;;
+  padding-right: 25px;
+}
+.short-full-block:after {
+  //font-family: 'booking-iconset';
+  color: #999;
+  font-size: 16px;
+  font-weight: bold;
+  content: ">";
+  line-height: inherit;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  line-height: 2em;
+  margin-top: -1em;
+  transform: rotate(90deg);
+}
+
+.short-full-block.active:after {
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.short-full-block{
+
+}
+
+.short-block{
+
+}
+.full-block{
+
+}

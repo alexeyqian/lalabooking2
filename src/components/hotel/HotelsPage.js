@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 //import {bindActionCreators} from 'redux';
 //import * as courseActions from '../actions/courseActions';
 import HotelList from './HotelList';
-//import {browserHistory} from 'react-router-dom';
+import SideSearch from './SideSearch';
+import HotelFilter from './HotelFilter';
 
 class HotelsPage extends React.Component{
   constructor(props, context){
@@ -15,9 +16,22 @@ class HotelsPage extends React.Component{
   render(){
     const {hotels} = this.props;
     return(
-      <div>
-        <h1>Hotels</h1>
-        <HotelList hotels={hotels}/>
+      <div className="row no-gutters">
+        <div className="col-md-3">
+          <div className="side-search-panel bg-light">
+            <SideSearch/>
+          </div>
+          <br/>
+          <div>
+            <HotelFilter city={"shanghai"}/>
+          </div>
+
+        </div>
+        <div className="col-md-9">
+          <div className="ml-1">
+          <HotelList hotels={hotels}/>
+          </div>
+        </div>
       </div>
     );
 

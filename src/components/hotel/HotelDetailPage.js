@@ -8,6 +8,14 @@ import * as ajaxStatusActions from '../../actions/ajaxStatusActions';
 
 import hotelApi from '../../api/mockHotelApi';
 
+import SideSearch from './SideSearch';
+import RoomTypeList from './RoomTypeList';
+
+import ImageGallery from 'react-image-gallery';
+
+
+import "react-image-gallery/styles/css/image-gallery.css";
+
 class HotelDetailPage extends React.Component{
   constructor(props, context){
     super(props, context);
@@ -35,12 +43,30 @@ class HotelDetailPage extends React.Component{
     return(
       <div>
         {hotel && hotel.id.length > 0 &&
-          <div>
+        <div className="row">
+
+          <div className="col-md-3">
+            <div className="side-search-panel bg-light">
+              <SideSearch/>
+            </div>
+            <br/>
+          </div>
+
+          <div className="col-md-9">
             <h1>Hotel: {hotel.name}</h1>
             <span>{hotel.id} - {hotel.category}</span>
+            <div className="hotel-image-gallery">
+              <ImageGallery items={hotel.photos} />
+            </div>
+            <div>{hotel.description}</div>
+            <RoomTypeList roomTypes={hotel.roomTypes}/>
           </div>
+
+        </div>
+
         }
       </div>
+
     );
   }
 }

@@ -1,0 +1,177 @@
+/* Search Page Styles*/
+
+.hotel-item{
+  position: relative;
+}
+
+.hotel-item .facility{
+  margin-bottom: 5px;
+}
+
+.facility span{
+    margin: 2px 5px;
+}
+
+.hotel-item .price{
+  position: absolute;
+  bottom: 0px;
+  right: 120px;
+  font-size: 24px;
+  color: green;
+
+}
+
+.hotel-item .booknow{
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+}
+
+ul.hotelList {
+    list-style: none;
+    padding: 0;
+}
+.hotelList img {
+    width: 100%;
+    max-height: 400px;
+}
+
+.hotelList span {
+    margin-right: 10px;
+}
+
+.hotelList i {
+    margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .hotelImage {
+    max-width: 160px;
+    max-height:160px;
+  }
+}
+
+.cityAndDate{
+  border: solid 1px grey;
+  padding: 10px;
+}
+
+.filterButton {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 60px;
+    z-index: 800;
+}
+
+.mapOrListButton {
+    position: fixed;
+    right: 0;
+    top: 50px;
+    width: 60px;
+    z-index: 800;
+}
+
+.reSearchMapButton {
+    position: absolute;
+    left: 50%;
+    width: 150px;
+    margin-left: -75px;
+    top: 50px;
+    z-index: 1000;
+    opacity: 0.8;
+}
+
+.reSearchingMapButton {
+    position: absolute;
+    left: 50%;
+    width: 150px;
+    margin-left: -75px;
+    top: 50px;
+    z-index: 1001;
+}
+
+
+.map-container {
+    position: fixed;
+    right: 0;
+    top: 55px;
+    width: calc(100% - 745px);
+    bottom: 0;
+}
+
+.map {
+    height: 100%;
+}
+
+.property-container {
+    border-bottom: 1px solid #aaa;
+    padding: 5px 0px;
+    margin-bottom: 0px !important;
+}
+
+.property-hover {
+    border: 1px solid orange;
+}
+
+
+.stick {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.filters-container {
+    padding-top: 5px;
+    border-bottom: 1px solid #ddd;
+    background-color: #eee;
+}
+
+    .filters-container .form-group {
+        margin-bottom: 5px;
+    }
+
+.filter-buttons-mobile {
+    background-color: #eee;
+    padding: 5px;
+    width: 100%;
+    -webkit-box-shadow: 0px 10px 5px -5px rgba(145,134,145,1);
+    -moz-box-shadow: 0px 10px 5px -5px rgba(145,134,145,1);
+    box-shadow: 0px 10px 5px -5px rgba(145,134,145,1);
+}
+
+#filtersSection.fullscreen {
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.hotel-filter-list{
+  list-style-type: none;
+  padding: 0px;
+}
+
+.hotel-filter-list span {
+  margin: 2px;
+}
+
+.filter-panel{
+  border: solid 1px lightgray;
+}
+
+.filter-panel-header{
+  padding:5px;
+}
+
+.filter-panel-body{
+  padding:5px;
+}
+
+.side-search-panel{
+  padding: 5px;
+}

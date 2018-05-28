@@ -1,0 +1,46 @@
+.hotel-room{
+  padding: 10px;
+  border-bottom: dotted 1px $default-boder-color;
+}
+
+.hotel-room-type{
+  background-color: $default-background-color;
+}
+
+.hotel-room-type-wrapper{
+  border-bottom: solid 5px $default-boder-color;
+}
+
+.hotel-room-type-list, .hotel-room-list{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    .column {
+        float: left;
+        padding: 5px;
+        overflow: hidden;
+    }
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .left {
+        width: 25%;
+    }
+    .right {
+        width: 75%;
+    }
+
+    .name {font-size: 16px; font-weight: bold;}
+    .price {font-size: 16px; font-weight: bold; color:green; margin-right: 10px;}
+
+    .facility{
+      padding: 5px;
+      margin-right: 5px;
+    }
+  }
+
+.hotel-image-gallery{
+}
