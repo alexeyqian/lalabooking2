@@ -15,6 +15,7 @@ import Header from './common/Header';
 import {connect} from 'react-redux';
 import HotelsPage from "./hotel/HotelsPage";
 import HotelDetailPage from './hotel/HotelDetailPage';
+import OrderPage from './order/OrderPage';
 
 class App extends React.Component {
 
@@ -29,6 +30,7 @@ class App extends React.Component {
             <Route exact path="/signin" component={SigninPage} />
             <Route path="/hotels" component={HotelsPage} />
             <Route path="/hotel/:id" component={HotelDetailPage}/>
+            <Route path="/order/" component={OrderPage}/>
             <Route path="/search" component={SearchPage} />
             <Route path="/fuel-savings" component={FuelSavingsPage} />
             <Route path="/courses" component={CoursesPage} />

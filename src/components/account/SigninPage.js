@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 //import {bindActionCreators} from 'redux';
 //import * as courseActions from '../actions/courseActions';
-//import {NavLink, Redirect} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 
 class SigninPage extends React.Component{
   constructor(props, context){
@@ -36,18 +36,18 @@ class SigninPage extends React.Component{
       <div>
         <h1>Sign in</h1>
         <form>
-          <div class="form-group">
-            <label for="email">Email</label>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
             <input type="email" className="form-control" id="email" name="email" placeholder="Email" />
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
             <input type="password" className="form-control" id="password" placeholder="Password" />
           </div>
-          <div class="form-group form-check">
+          <div className="form-group form-check">
             <input type="checkbox" className="form-check-input" id="rememberMe" />
-            <label class="form-check-label" for="rememberMe">Remember me</label>
-            <NavLink to='/forgotPassword' className="ml-2">Forgot password?</NavLink>
+            <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+            <NavLink to="/forgotPassword" className="ml-2">Forgot password?</NavLink>
           </div>
           <button type="submit" className="btn btn-primary" onClick={this.login}>Sign in</button>
         </form>

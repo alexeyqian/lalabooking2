@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 //import {bindActionCreators} from 'redux';
 //import * as courseActions from '../actions/courseActions';
 //import {browserHistory} from 'react-router-dom';
-//import {NavLink} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 class SignupPage extends React.Component{
   constructor(props, context){
@@ -13,7 +13,7 @@ class SignupPage extends React.Component{
 
   render(){
     if (this.props.isAuthenticated) {
-      return <Redirect to='/' />;
+      return <Redirect to="/" />;
     }
 
     //const s = this.state;
@@ -23,16 +23,16 @@ class SignupPage extends React.Component{
         <h1>Sign up</h1>
 
         <form>
-          <div class="form-group">
-            <label for="email">Email</label>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
             <input type="email" className="form-control" id="email" name="email" placeholder="Email" />
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
             <input type="password" className="form-control" id="password" placeholder="Password" />
           </div>
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
             <input type="password" className="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirm Password" />
           </div>
 

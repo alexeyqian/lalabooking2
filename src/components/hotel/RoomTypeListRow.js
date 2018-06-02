@@ -1,34 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const RoomProductRow = ({product}) => {
-  const p = product;
-  return (
-    <tr>
-      <th scope="row">{p.productName}</th>
-      <td>{p.supplier}</td>
-      <td>{p.breakfast}</td>
-      <td>{p.cancellationPolicy}</td>
-      <td>{p.price} {p.currency}</td>
-      <td>Button</td>
-    </tr>
-  );
-};
-
-RoomProductRow.propTypes = {
-  product: PropTypes.object.isRequired
-};
-
-const RoomPhotoRow = ({photo}) => {
-  const p = photo;
-  return (
-    <div className="float-left mr-1"><img src={p} width="120px" height="120px"/></div>
-  );
-};
-
-RoomPhotoRow.propTypes = {
-  photo: PropTypes.string.required
-};
+import RoomProductRow from './RoomProductRow';
 
 const RoomTypeListRow = ({roomType}) => {
   const t = roomType;
@@ -73,8 +45,11 @@ const RoomTypeListRow = ({roomType}) => {
         </div>
 
         <div>
-          {t.photos.map((p, index) =>
-            <RoomPhotoRow key={index} photo={p} />
+          {t.photos.map((p, index) => {
+              <div key={index} className="float-left mr-1">
+                <img src={p} width="120px" height="120px"/>
+              </div>
+            }
           )}
         </div>
 
