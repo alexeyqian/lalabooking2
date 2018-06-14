@@ -39,7 +39,8 @@ const OrderCustomerForm = ({customer, onChange, errors}) => {
 
 OrderCustomerForm.propTypes = {
   customer: PropTypes.object.isRequired,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  onChange: PropTypes.func.isRequired
 };
 
 export default OrderCustomerForm;

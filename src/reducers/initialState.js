@@ -1,6 +1,6 @@
 export default {
   ajaxCallsInProgress: 0,
-  query:{},
+  query:{adult: 2, children: 0},
   hotels: [],
   hotel: {},
   courses: [],

@@ -10,6 +10,10 @@ export function loadHotelSuccess(hotel){
   return {type: types.LOAD_HOTEL_SUCCESS, hotel};
 }
 
+export function updateHotelQuery(query){
+  return{type: types.UPDATE_HOTEL_QUERY, query};
+}
+
 // begin thunk functions
 
 export function loadHotels(){

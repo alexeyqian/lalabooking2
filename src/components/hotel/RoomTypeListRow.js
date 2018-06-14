@@ -46,9 +46,10 @@ const RoomTypeListRow = ({roomType}) => {
 
         <div>
           {t.photos.map((p, index) => {
+            return (
               <div key={index} className="float-left mr-1">
                 <img src={p} width="120px" height="120px"/>
-              </div>
+              </div>);
             }
           )}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 const RoomProductRow = ({product}) => {
   const p = product;
@@ -10,7 +11,7 @@ const RoomProductRow = ({product}) => {
       <td>{p.breakfast}</td>
       <td>{p.cancellationPolicy}</td>
       <td>{p.price} {p.currency}</td>
-      <td>Button</td>
+      <td><Link to="/order">Book now</Link></td>
     </tr>
   );
 };

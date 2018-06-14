@@ -11,7 +11,12 @@ class HotelsPage extends React.Component{
   constructor(props, context){
     super(props, context);
 
+    //this.onSelectHotel = this.onSelectHotel.bind(this);
   }
+  /*
+  onSelectHotel(){
+    this.props.history.push('/hotel/1');
+  }*/
 
   render(){
     const {hotels} = this.props;

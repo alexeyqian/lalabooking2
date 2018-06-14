@@ -8,7 +8,7 @@ const Header = ({loading}) => {
   return (
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
-      <NavLink to="/" className="navbar-brand">LalaBooking</NavLink>
+      <NavLink to="/" className="navbar-brand">Lala</NavLink>
       {loading && <LoadingDots interval={100} dots={20}/>}
       <button className="navbar-toggler" type="button"
               data-toggle="collapse" data-target="#navbarTopMenu"

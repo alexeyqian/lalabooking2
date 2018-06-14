@@ -16,13 +16,18 @@ import {connect} from 'react-redux';
 import HotelsPage from "./hotel/HotelsPage";
 import HotelDetailPage from './hotel/HotelDetailPage';
 import OrderPage from './order/OrderPage';
+import PaymentPage from './payment/PaymentPage';
 
 class App extends React.Component {
 
   render() {
     return (
       <div >
-        <Header loading={this.props.loading} />
+
+        <div className="container bg-light">
+          <Header loading={this.props.loading} />
+        </div>
+
         <div className="container">
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -30,7 +35,8 @@ class App extends React.Component {
             <Route exact path="/signin" component={SigninPage} />
             <Route path="/hotels" component={HotelsPage} />
             <Route path="/hotel/:id" component={HotelDetailPage}/>
-            <Route path="/order/" component={OrderPage}/>
+            <Route path="/order" component={OrderPage}/>
+            <Route path="/payment" component={PaymentPage} />
             <Route path="/search" component={SearchPage} />
             <Route path="/fuel-savings" component={FuelSavingsPage} />
             <Route path="/courses" component={CoursesPage} />
@@ -39,6 +45,7 @@ class App extends React.Component {
             <Route component={NotFoundPage} />
           </Switch>
         </div>
+
       </div>
     );
   }

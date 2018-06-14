@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import * as hotelActions from '../../actions/hotelActions';
-//import {browserHistory} from 'react-router-dom';
 import * as ajaxStatusActions from '../../actions/ajaxStatusActions';
 
 import hotelApi from '../../api/mockHotelApi';

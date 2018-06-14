@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -81,8 +81,8 @@ class HomeSearchComponent extends React.Component {
     // //alert(url);
     // window.location.href = url.replaceAll(' ','-');
     //debugger;
-    //this.context.history.push('/hotels');
-    window.location.href="/hotels";
+    this.props.onSearch();
+    //window.location.href="/hotels";
   }
 
   getQueryParameters(s) {
@@ -258,9 +258,9 @@ class HomeSearchComponent extends React.Component {
   }
 }
 
-// HomeSearchComponent.propTypes = {
-//   //history: PropTypes.object.isRequired
-// };
+HomeSearchComponent.propTypes = {
+   onSearch: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state){
   return{

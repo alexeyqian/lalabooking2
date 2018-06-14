@@ -15,6 +15,7 @@ import '../node_modules/toastr/build/toastr.min.css';
 import './styles/styles.scss';
 
 require('./favicon.ico'); // Tell webpack to load favicon.ico
+
 const store = configureStore();
 store.dispatch(loadAuthors());
 store.dispatch(loadCourses());

@@ -61,7 +61,8 @@ class SigninPage extends React.Component{
 
 SigninPage.propTypes = {
   courses: PropTypes.array.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
   //actions: PropTypes.object.isRequired
 };
 /*
