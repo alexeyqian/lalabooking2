@@ -1,0 +1,1 @@
+export const LOAD_HOTEL_SUCCESS = 'LOAD_HOTEL_SUCCESS';

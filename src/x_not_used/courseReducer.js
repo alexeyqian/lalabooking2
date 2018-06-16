@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import initialState from './initialState';
+import initialState from '../reducers/initialState';
 
 export default function courseReducer(state=initialState.courses, action){
   switch(action.type){

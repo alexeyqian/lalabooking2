@@ -5,16 +5,16 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import {view as HomePage} from './homePage';
 import SignupPage from './account/SignupPage';
 import SigninPage from './account/SigninPage';
-import FuelSavingsPage from './containers/FuelSavingsPage';
+//import FuelSavingsPage from '../x_not_used/containers/FuelSavingsPage';
 import AboutPage from './AboutPage';
-import SearchPage from './SearchPage';
-import CoursesPage from './course/CoursesPage';
-import CourseManagePage from './course/CourseManagePage';
+//import SearchPage from '../x_not_used/SearchPage';
+//import CoursesPage from '../x_not_used/course/CoursesPage';
+//import CourseManagePage from '../x_not_used/course/CourseManagePage';
 import NotFoundPage from './NotFoundPage';
 import Header from './common/Header';
 import {connect} from 'react-redux';
 import {view as HotelSearchPage} from './hotelSearchPage';
-import HotelDetailPage from './hotel/HotelDetailPage';
+import HotelDetailPage from './hotelDetailPage/views/HotelDetailPage';
 import OrderPage from './order/OrderPage';
 import PaymentPage from './payment/PaymentPage';
 
@@ -37,10 +37,6 @@ class App extends React.Component {
             <Route path="/hotel/:id" component={HotelDetailPage}/>
             <Route path="/order" component={OrderPage}/>
             <Route path="/payment" component={PaymentPage} />
-            <Route path="/search" component={SearchPage} />
-            <Route path="/fuel-savings" component={FuelSavingsPage} />
-            <Route path="/courses" component={CoursesPage} />
-            <Route path="/course/:id" component={CourseManagePage} />
             <Route path="/about" component={AboutPage} />
             <Route component={NotFoundPage} />
           </Switch>

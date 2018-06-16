@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 import courseApi from '../api/mockCourseApi';
-import {ajaxCallError, beginAjaxCall} from "./ajaxStatusActions";
+import {ajaxCallError, beginAjaxCall} from "../actions/ajaxStatusActions";
 
 export function createCourse(course){
   return {type: types.CREATE_COURSE, course};

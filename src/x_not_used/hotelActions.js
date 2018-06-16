@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 import hotelApi from '../api/mockHotelApi';
-import {beginAjaxCall} from "./ajaxStatusActions";
+import {beginAjaxCall} from "../actions/ajaxStatusActions";
 
 
 export function loadHotelsSuccess(hotels) {
