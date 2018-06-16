@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-import * as hotelActions from '../../actions/hotelActions';
-import HomeSearch from './HomeSearch2';
+import * as actions from '../actions';
+import {view as SearchOnHome} from '../../searchOnHome';
 
 class HomePage extends React.Component {
   constructor(props, context) {
@@ -13,7 +13,7 @@ class HomePage extends React.Component {
   }
 
   redirectToHotelsPage(query, url) {
-    this.props.actions.updateHotelQuery(query);
+    this.props.actions.updateQuery(query);
     this.props.history.push(url);
   }
 
@@ -21,7 +21,7 @@ class HomePage extends React.Component {
     return (
       <div className="row">
         <div className="col-md-12 mt-5">
-          <HomeSearch onSearch={this.redirectToHotelsPage}/>
+          <SearchOnHome onSearch={this.redirectToHotelsPage}/>
         </div>
       </div>
     );
@@ -42,7 +42,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
    return {
-     actions: bindActionCreators(hotelActions, dispatch)
+     actions: bindActionCreators(actions, dispatch)
    };
 }
 

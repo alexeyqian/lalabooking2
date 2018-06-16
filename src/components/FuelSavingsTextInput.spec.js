@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { shallow } from 'enzyme';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
@@ -46,3 +47,4 @@ describe('<FuelSavingsTextInput />', () => {
     expect(placeholder).toEqual('Type Here');
   });
 });
+*/

@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import HomePage from './home/HomePage';
+import {view as HomePage} from './homePage';
 import SignupPage from './account/SignupPage';
 import SigninPage from './account/SigninPage';
 import FuelSavingsPage from './containers/FuelSavingsPage';
@@ -13,7 +13,7 @@ import CourseManagePage from './course/CourseManagePage';
 import NotFoundPage from './NotFoundPage';
 import Header from './common/Header';
 import {connect} from 'react-redux';
-import HotelsPage from "./hotel/HotelsPage";
+import {view as HotelSearchPage} from './hotelSearchPage';
 import HotelDetailPage from './hotel/HotelDetailPage';
 import OrderPage from './order/OrderPage';
 import PaymentPage from './payment/PaymentPage';
@@ -33,7 +33,7 @@ class App extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/signin" component={SigninPage} />
-            <Route path="/hotels" component={HotelsPage} />
+            <Route path="/hotels" component={HotelSearchPage} />
             <Route path="/hotel/:id" component={HotelDetailPage}/>
             <Route path="/order" component={OrderPage}/>
             <Route path="/payment" component={PaymentPage} />

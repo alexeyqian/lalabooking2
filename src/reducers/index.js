@@ -1,20 +1,24 @@
 import { combineReducers } from 'redux';
-import fuelSavings from './fuelSavingsReducer';
-import courses from './courseReducer';
-import authors from './authorReducer';
-import hotels from './hotelReducer';
-
+import { routerReducer as routing } from 'react-router-redux';
 import ajaxCallsInProgress from './ajaxStatusReducer';
-
-import { routerReducer } from 'react-router-redux';
+import {reducer as query} from '../components/homePage';
+import {reducer as hotels} from '../components/hotelSearchPage';
 
 const rootReducer = combineReducers({
+  routing,
+  query,
   hotels,
-  fuelSavings,
-  authors,
-  courses,
-  ajaxCallsInProgress,
-  routing: routerReducer
+  ajaxCallsInProgress
 });
+
+/*
+function rootReducer(state = initialStore, action){
+  return {
+    routing: routerReducer(state.routing, action),
+    ajaxCallsInProgress: ajaxCallsInProgress(state.ajaxCallsInProgress, action),
+    query,
+    hotels,
+  };
+}*/
 
 export default rootReducer;

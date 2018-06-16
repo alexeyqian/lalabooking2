@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const HotelListRow = ({hotel}) => {
   return (
@@ -16,7 +16,7 @@ const HotelListRow = ({hotel}) => {
 
           <div>
             <span className="card-title">
-              <NavLink to={'/hotel/'+ hotel.id} className="">{hotel.name}</NavLink>
+              <Link to={'/hotel/'+ hotel.id} className="">{hotel.name}</Link>
             </span>
             <span className="card-subtitle ml-2">{hotel.stars} Stars</span>
           </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Autocomplete from 'react-autocomplete';
-import cities from '../../data/city';
+import cities from '../../../data/city';
 
 import 'react-datepicker/dist/react-datepicker.css';
 

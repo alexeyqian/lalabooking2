@@ -1,9 +1,10 @@
+/*
 import React from 'react';
 import { shallow } from 'enzyme';
 import FuelSavingsForm from './FuelSavingsForm';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
 import FuelSavingsResults from './FuelSavingsResults';
-
+*/
 /* Object builder. Could use test data builder pattern too.
    More info: http://blog.codeleak.pl/2014/06/test-data-builders-and-object-mother.html
    Returns fuel savings object. Overrides default values
@@ -12,6 +13,8 @@ import FuelSavingsResults from './FuelSavingsResults';
    default below, but with newMpg set to 10, call with
    getFuelSavings({ newMpg: 10});
 */
+
+/*
 function getFuelSavings(args) {
   const defaultFuelSavings = {
     newMpg: 20,
@@ -166,4 +169,4 @@ describe('<FuelSavingsForm />', () => {
     wrapper.find('select').simulate('change', changeEvent);
     expect(onChange).toBeCalledWith(changeEvent);
   });
-});
+});*/

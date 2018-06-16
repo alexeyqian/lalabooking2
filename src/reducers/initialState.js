@@ -1,24 +1,7 @@
 export default {
+  routing: {},
   ajaxCallsInProgress: 0,
   query:{adult: 2, children: 0},
   hotels: [],
-  hotel: {},
-  courses: [],
-  authors: [],
-  fuelSavings: {
-    newMpg: '',
-    tradeMpg: '',
-    newPpg: '',
-    tradePpg: '',
-    milesDriven: '',
-    milesDrivenTimeframe: 'week',
-    displayResults: false,
-    dateModified: null,
-    necessaryDataIsProvidedToCalculateSavings: false,
-    savings: {
-      monthly: 0,
-      annual: 0,
-      threeYear: 0
-    }
-  }
+  hotel: {}
 };

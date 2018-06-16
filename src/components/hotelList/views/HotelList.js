@@ -10,7 +10,6 @@ const HotelList = ({hotels}) => {
         )}
     </div>
   );
-
 };
 
 HotelList.propTypes = {

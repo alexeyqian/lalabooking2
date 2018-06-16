@@ -1,5 +1,4 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
 
 const HotelFilter = () => {
   return (
@@ -247,9 +246,5 @@ const HotelFilter = () => {
   );
 
 };
-
-//HotelFilter.propTypes = {
-  //city: PropTypes.object.isRequired
-//};
 
 export default HotelFilter;
