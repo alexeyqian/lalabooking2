@@ -15,7 +15,7 @@ import Header from './common/Header';
 import {connect} from 'react-redux';
 import {view as HotelSearchPage} from './hotelSearchPage';
 import HotelDetailPage from './hotelDetailPage/views/HotelDetailPage';
-import OrderPage from './order/OrderPage';
+import OrderPage from './orderPage/views/OrderPage';
 import PaymentPage from './payment/PaymentPage';
 
 class App extends React.Component {

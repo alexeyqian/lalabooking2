@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import toastr from 'toastr';
 
-import * as orderActions from '../../actions/orderActions';
+import * as actions from '../actions';
 
 import OrderHotelInfo from './OrderHotelInfo';
 import OrderRoomTypeInfo from './OrderRoomTypeInfo';
@@ -57,7 +58,7 @@ class OrderPage extends React.Component{
     };
 
     this.updateCustomerState = this.updateCustomerState.bind(this);
-    this.saveOrder = this.saveOrder.bind(this);
+    this.submitOrder = this.submitOrder.bind(this);
   }
 
   formIsValid(){
@@ -85,7 +86,7 @@ class OrderPage extends React.Component{
     return this.setState({order: order});
   }
 
-  saveOrder(event){
+  submitOrder(event){
     event.preventDefault();
     if(!this.formIsValid())
       return;
@@ -106,22 +107,26 @@ class OrderPage extends React.Component{
   }
 
   render(){
-    //const {hotel, roomType, orderBrief, customer} = this.state;
+    const {hotel, roomType, orderBrief, customer} = this.state;
 
     return(
       <div>
-
+        <div>
+          <Link to={hotel.id}>Back to Hotel</Link>
+        </div>
         <div className="row">
 
-          <div className="col-md-4">
+          <div className="col-md-6">
             <OrderHotelInfo hotel={this.state.order.hotel}/>
+            <hr/>
             <OrderRoomTypeInfo roomType={this.state.order.roomType}/>
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-6">
             <OrderBriefInfo orderBrief={this.state.order.orderBrief}/>
             <OrderCustomerForm customer={this.state.order.customer}
                                onChange={this.updateCustomerState}
+                               onSubmit={this.submitOrder}
                                errors={this.state.errors}/>
           </div>
 
@@ -135,23 +140,24 @@ class OrderPage extends React.Component{
 
 OrderPage.propTypes = {
   user: PropTypes.object.isRequired,
+  hotel: PropTypes.object.isRequired,
+  query: PropTypes.object,
   history: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
-  let user = {name: "Alexey", isAuthorized: true};
-  if(state.user)
-    user = state.user;
 
   return {
-    user: user
+    user: state.user,
+    hotel: state.hotel,
+    query: state.query
   };
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    actions: bindActionCreators(orderActions, dispatch)
+    actions: bindActionCreators(actions, dispatch)
   } ;
 }
 

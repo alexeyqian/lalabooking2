@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextInput from '../common/TextInput';
+import TextInput from '../../common/TextInput';
 
-const OrderCustomerForm = ({customer, onChange, errors}) => {
+const OrderCustomerForm = ({customer, onChange, onSubmit, errors}) => {
 
   return (
     <form>
@@ -33,6 +33,8 @@ const OrderCustomerForm = ({customer, onChange, errors}) => {
         value={customer.email}
         onChange={onChange}
         error={errors.email}/>
+
+      <button className="btn btn-primary" onClick={onSubmit}>Submit Order</button>
     </form>
   );
 };
@@ -40,7 +42,8 @@ const OrderCustomerForm = ({customer, onChange, errors}) => {
 OrderCustomerForm.propTypes = {
   customer: PropTypes.object.isRequired,
   errors: PropTypes.object,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default OrderCustomerForm;

@@ -4,13 +4,15 @@ import ajaxCallsInProgress from './ajaxStatusReducer';
 import {reducer as query} from '../components/homePage';
 import {reducer as hotels} from '../components/hotelSearchPage';
 import {reducer as hotel} from '../components/hotelDetailPage';
+import {reducer as order} from '../components/orderPage';
 
 const rootReducer = combineReducers({
   routing,
   ajaxCallsInProgress,
   query,
   hotels,
-  hotel
+  hotel,
+  order
 });
 
 /*
