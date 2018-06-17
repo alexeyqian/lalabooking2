@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
+import moment from 'moment';
 
 class CheckinCheckout extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      checkin: this.props.checkin,
-      checkout: this.props.checkout,
+      checkin: this.props.checkin || new moment(),
+      checkout: this.props.checkout || new moment().add(1, 'days')
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,7 +53,7 @@ class CheckinCheckout extends React.Component {
         </div>
 
         <div className="form-group col-md-4">
-          <button className="btn btn-primary" onClick={this.props.handleSubmit}>Change Dates</button>
+          <button className="btn btn-primary" onClick={this.handleSubmit}>Change Dates</button>
         </div>
       </div>
     );
@@ -62,8 +63,8 @@ class CheckinCheckout extends React.Component {
 }
 
 CheckinCheckout.propTypes = {
-  checkin: PropTypes.object.isRequired,
-  checkout: PropTypes.object.isRequired,
+  checkin: PropTypes.object,
+  checkout: PropTypes.object,
   onChangeDates: PropTypes.func.isRequired
 };
 

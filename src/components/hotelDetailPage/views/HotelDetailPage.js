@@ -6,13 +6,21 @@ import {Link} from 'react-router-dom';
 import * as actions from '../actions';
 import RoomTypeList from './RoomTypeList';
 import CheckinCheckout from './CheckinCheckout';
+import HotelMap from './HotelMap';
+import NearByHotelList from './NearByHotelList';
 import ImageGallery from 'react-image-gallery';
+import HotelApi from '../../../api/mockHotelApi';
+import * as ajaxStatusActions from '../../../actions/ajaxStatusActions';
 
 import "react-image-gallery/styles/css/image-gallery.css";
 
 class HotelDetailPage extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.state = {
+      nearByHotels: []
+    };
 
     this.onChangeDates = this.onChangeDates.bind(this);
 
@@ -23,15 +31,19 @@ class HotelDetailPage extends React.Component {
     // loadRoomsById(query);
     // loadNearbyHotels(hotel);
     // loadHotelMap(hotel)
-    /*ajaxStatusActions.beginAjaxCall();
-    hotelApi.getHotelById(this.props.id)
-      .then(h => {
+    this.getNearByHotels();
+  }
+
+  getNearByHotels(){
+    ajaxStatusActions.beginAjaxCall();
+    HotelApi.getNearByHotels()
+      .then(hotels => {
         ajaxStatusActions.ajaxCallSuccess();
-        this.setState({hotel: h});
+        this.setState({nearByHotels: hotels});
       }).catch(error => {
-        ajaxStatusActions.ajaxCallError();
-        throw(error);
-      });*/
+      ajaxStatusActions.ajaxCallError();
+      throw(error);
+    });
   }
 
   onChangeDates(){
@@ -43,6 +55,14 @@ class HotelDetailPage extends React.Component {
     const {hotel} = this.props;
     if(!hotel || !hotel.id)
       return null;
+
+    const geo = {
+      center: {
+        lat: 59.95,
+        lng: 30.33
+      },
+      zoom: 11
+    };
 
     return (
 
@@ -66,11 +86,11 @@ class HotelDetailPage extends React.Component {
 
           <div className="col-md-4">
             <div className="map-panel bg-light">
-              MAP
+              <HotelMap geo={geo}/>
             </div>
             <br/>
             <div className="near-by-panel bg-light">
-              near by hotels
+              <NearByHotelList hotels={this.state.nearByHotels}/>
             </div>
             <br/>
           </div>

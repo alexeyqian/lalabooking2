@@ -248,6 +248,14 @@ class HotelApi {
     });
   }
 
+  static getNearByHotels(){
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(Object.assign([], hotels));
+      }, delay);
+    });
+  }
+
   static getHotelById(id){
     return new Promise((resolve) => {
       setTimeout(() => {
