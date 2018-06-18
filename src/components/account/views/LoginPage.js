@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 //import * as courseActions from '../actions/courseActions';
 import {NavLink, Redirect} from 'react-router-dom';
 
-class SigninPage extends React.Component{
+class LoginPage extends React.Component{
   constructor(props, context){
     super(props, context);
 
@@ -59,7 +59,7 @@ class SigninPage extends React.Component{
 
 }
 
-SigninPage.propTypes = {
+LoginPage.propTypes = {
   courses: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired
@@ -78,4 +78,4 @@ function mapStateToProps(state){
 //   } ;
 // }
 
-export default connect()(SigninPage);
+export default connect()(LoginPage);
