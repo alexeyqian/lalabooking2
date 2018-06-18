@@ -94,7 +94,8 @@ class RegisterPage extends React.Component {
 }
 
 RegisterPage.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
