@@ -17,18 +17,20 @@ class OrderPage extends React.Component{
     super(props, context);
 
     // test code
-    let orderBrief = {
-      fromDate: "2018-06-01",
-      toDate: "2018-06-03",
-      numberOfRooms: 1,
-      currency: "RMB",
-      total: 280
-    };
+
 
     let hotel = {
       name: "Ramada Plaza Peace Shanghai",
       address: "No. 688 Xietu Road, Huangpu District, Shanghai, China",
       defaultPhoto: "http://pavo.elongstatic.com/i/Hotel235_145/00005mvF.jpg"
+    };
+/*
+let orderBrief = {
+      fromDate: "2018-06-01",
+      toDate: "2018-06-03",
+      numberOfRooms: 1,
+      currency: "RMB",
+      total: 280
     };
 
     let roomType = {
@@ -43,14 +45,14 @@ class OrderPage extends React.Component{
     };
 
     let customer = {};
-
+*/
     this.state = {
       order: {
         hotel: hotel,
-        roomType: roomType,
-        orderBrief: orderBrief,
+        //roomType: roomType,
+        //orderBrief: orderBrief,
         numberOfRooms: 1,
-        customer: customer,
+        //customer: customer,
       },
 
       saving: false,
@@ -107,7 +109,7 @@ class OrderPage extends React.Component{
   }
 
   render(){
-    const {hotel, roomType, orderBrief, customer} = this.state;
+    const {hotel} = this.state;
 
     return(
       <div>

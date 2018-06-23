@@ -5,10 +5,12 @@ import {reducer as query} from '../components/homePage';
 import {reducer as hotels} from '../components/hotelSearchPage';
 import {reducer as hotel} from '../components/hotelDetailPage';
 import {reducer as order} from '../components/orderPage';
+import {reducer as user} from '../components/account';
 
 const rootReducer = combineReducers({
   routing,
   ajaxCallsInProgress,
+  user,
   query,
   hotels,
   hotel,

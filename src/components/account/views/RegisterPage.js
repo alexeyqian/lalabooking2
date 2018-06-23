@@ -5,14 +5,15 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../actions';
 import {Link, Redirect} from 'react-router-dom';
 
-class LoginPage extends React.Component {
+class RegisterPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      email: '',
+      username: '',
       password: '',
-      rememberMe: false
+      confirmPassword: '',
+      //submitted: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -29,10 +30,15 @@ class LoginPage extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
 
-    this.props.actions.login(this.state.email, this.state.password);
+    if (!this.state.username || !this.state.password)
+      return;
+
+    //this.setState({submitted: true});
+    this.props.actions.register({username: this.state.username, password: this.state.password});
+    //this.props.history.push('/login');
   }
 
   render() {
@@ -40,51 +46,43 @@ class LoginPage extends React.Component {
       return <Redirect to="/"/>;
     }
 
-    const {from} = this.props.location.state || {from: {pathname: "/"}};
-    const {redirectToReferrer} = this.state;
-
-    if (redirectToReferrer) {
-      return <Redirect to={from}/>;
-    }
-
     return (
       <div className="row">
 
         <div className="col-md-6 offset-md-3">
-          <h1>Login</h1>
+          <h1>Register</h1>
+
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" value={this.state.email} onChange={this.handleInputChange}
-                     className="form-control" id="email" name="email" placeholder="Email"/>
+              <input type="email" value={this.state.username} onChange={this.handleInputChange}
+                     className="form-control" id="username" name="username" placeholder="Email"/>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input type="password" value={this.state.password} onChange={this.handleInputChange}
                      className="form-control" id="password" name="password" placeholder="Password"/>
             </div>
-            <div className="form-group form-check">
-              <input type="checkbox" value={this.state.rememberMe} onChange={this.handleInputChange}
-                     className="form-check-input" id="rememberMe" name="rememberMe"/>
-              <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
-              <Link to="/forgotPassword" className="ml-2">Forgot password?</Link>
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input type="password" value={this.state.confirmPassword} onChange={this.handleInputChange}
+                     className="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirm Password"/>
             </div>
-            <button type="submit" className="btn btn-primary">Login</button>
-            <Link to="/register" className="btn btn-link">Register</Link>
+
+            <button type="submit" className="btn btn-primary">Register</button>
+            <Link to="/login" className="btn btn-link">Login</Link>
           </form>
 
         </div>
 
       </div>
     );
-
   }
 
 }
 
-LoginPage.propTypes = {
+RegisterPage.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  location: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 };
@@ -101,4 +99,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);

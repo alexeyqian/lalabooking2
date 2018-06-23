@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import LoadingDots from './LoadingDots';
 
-const Header = ({loading}) => {
+const Header = ({loading, user, onLogout}) => {
   {/*const activeStyle = { color: 'blue' };*/}
+  const isLoggedIn = user && user.isLoggedIn;
+
   return (
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
@@ -19,15 +21,23 @@ const Header = ({loading}) => {
       <div className="collapse navbar-collapse justify-content-end" id="navbarTopMenu">
 
         <ul className="navbar-nav">
+
+          {isLoggedIn &&
+            <li className="nav-link">
+              <Link to={'/account/' + user.username} ><i className="fas fa-user"></i></Link>
+              <a className="btn btn-link" onClick={onLogout}>Logout</a>
+            </li>
+          }
+          {!isLoggedIn &&
           <li className="nav-item">
-            <NavLink to="/hotels" className="nav-link">Hotels</NavLink>
+            <NavLink to="/login" className="nav-link">Login</NavLink>
           </li>
+          }
+          {!isLoggedIn &&
           <li className="nav-item">
-            <NavLink to="/signup" className="nav-link">Sign up</NavLink>
+            <NavLink to="/register" className="nav-link">Register</NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink to="/signin" className="nav-link">Sign in</NavLink>
-          </li>
+          }
         </ul>
       </div>
     </nav>
@@ -37,7 +47,8 @@ const Header = ({loading}) => {
 };
 
 Header.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  user: PropTypes.object
 };
 
 export default Header;
