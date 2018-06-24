@@ -3,8 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import {view as HomePage} from './homePage';
-import {LoginPage, RegisterPage} from './account';
+import {LoginPage, RegisterPage, ChangePasswordPage, ProfilePage} from './account';
 import AboutPage from './AboutPage';
+import PrivateRoute from './common/PrivateRoute';
+
 //import SearchPage from '../x_not_used/SearchPage';
 //import CoursesPage from '../x_not_used/course/CoursesPage';
 //import CourseManagePage from '../x_not_used/course/CourseManagePage';
@@ -51,6 +53,8 @@ class App extends React.Component {
             <Route path="/order" component={OrderPage}/>
             <Route path="/payment" component={PaymentPage} />
             <Route path="/about" component={AboutPage} />
+            <PrivateRoute exact path="/changePassword" component={ChangePasswordPage} />
+            <PrivateRoute exact path="/profile" component={ProfilePage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

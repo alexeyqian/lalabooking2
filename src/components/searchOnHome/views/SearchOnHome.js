@@ -164,7 +164,7 @@ class HomeSearchComponent extends React.Component {
                       className="form-control"
                       placeholderText="Check out"/>
         </div>
-
+        {/*
         <div className="form-group col-md-1">
           <label htmlFor="adults">Adults</label>
           <select className="form-control" name="adults" value={this.state.adults}
@@ -190,6 +190,7 @@ class HomeSearchComponent extends React.Component {
             <option value="5">5</option>
           </select>
         </div>
+        */}
 
         <div className="form-group col-md-2">
           <label htmlFor="search">&nbsp;</label>

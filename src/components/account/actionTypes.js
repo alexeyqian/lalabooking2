@@ -8,3 +8,4 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 //export const SET_LOGIN_STATUS = 'SET_LOGIN_STATUS';
 
 export const LOGOUT = 'LOGOUT';
+export const CHANGE_PASSWORD_SUCCESS = 'CHANGE_PASSWORD_SUCCESS';

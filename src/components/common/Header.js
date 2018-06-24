@@ -23,19 +23,22 @@ const Header = ({loading, user, onLogout}) => {
         <ul className="navbar-nav">
 
           {isLoggedIn &&
-            <li className="nav-link">
-              <Link to={'/account/' + user.username} ><i className="fas fa-user"></i></Link>
-              <a className="btn btn-link" onClick={onLogout}>Logout</a>
-            </li>
-          }
-          {!isLoggedIn &&
-          <li className="nav-item">
-            <NavLink to="/login" className="nav-link">Login</NavLink>
+          <li className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <i className="fas fa-user"/><span className="ml-1">Account</span>
+            </a>
+            <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/profile" >Profile</Link>
+              <Link className="dropdown-item" to={'/changePassword'} >Change password</Link>
+
+              <div className="dropdown-divider"/>
+              <a className="dropdown-item" onClick={onLogout}>Logout</a>
+            </div>
           </li>
           }
           {!isLoggedIn &&
           <li className="nav-item">
-            <NavLink to="/register" className="nav-link">Register</NavLink>
+            <Link to="/login" className="nav-link">Login</Link>
           </li>
           }
         </ul>
@@ -48,7 +51,8 @@ const Header = ({loading, user, onLogout}) => {
 
 Header.propTypes = {
   loading: PropTypes.bool.isRequired,
-  user: PropTypes.object
+  user: PropTypes.object,
+  onLogout: PropTypes.func.isRequired
 };
 
 export default Header;
