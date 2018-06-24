@@ -31,7 +31,7 @@ const Header = ({loading, user, onLogout}) => {
             </a>
             <div className="dropdown-menu">
               <Link className="dropdown-item" to="/myOrders">My Orders</Link>
-              <Link className="dropdown-item" to="/myPaymentMethods">My Payment Methods</Link>
+              <Link className="dropdown-item" to="/paymentMethods">Payment Methods</Link>
               <div className="dropdown-divider"/>
               <Link className="dropdown-item" to="/profile">Profile</Link>
               <Link className="dropdown-item" to={'/changePassword'}>Change password</Link>

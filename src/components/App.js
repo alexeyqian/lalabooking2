@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import {view as HomePage} from './homePage';
-import {LoginPage, RegisterPage, ChangePasswordPage, ProfilePage} from './account';
+import {LoginPage, RegisterPage, ChangePasswordPage, ProfilePage, PaymentMethodListPage} from './account';
 import AboutPage from './AboutPage';
 import PrivateRoute from './common/PrivateRoute';
 import {view as MyOrderPage} from './myOrderPage';
@@ -53,6 +53,7 @@ class App extends React.Component {
             <PrivateRoute exact path="/changePassword" component={ChangePasswordPage} />
             <PrivateRoute exact path="/profile" component={ProfilePage} />
             <PrivateRoute exact path="/myorders" component={MyOrderPage} />
+            <PrivateRoute exact path="/paymentMethods" component={PaymentMethodListPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

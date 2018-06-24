@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions';
 import OrderList from './OrderList';
+import UserSideMenu from '../../../components/common/UserSideMenu';
 
 class OrderListPage extends React.Component{
   constructor(props, context){
@@ -44,16 +45,13 @@ class OrderListPage extends React.Component{
       orderList = <div>No orders found</div>;
 
     return(
-      <div className="row no-gutters">
+      <div className="row">
         <div className="col-md-3">
-          <div className="side-search-panel bg-light" />
-          <br/>
-
+            <UserSideMenu/>
         </div>
+
         <div className="col-md-9">
-          <div className="ml-1">
             {orderList}
-          </div>
         </div>
       </div>
     );

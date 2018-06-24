@@ -194,7 +194,7 @@ class HomeSearchComponent extends React.Component {
 
         <div className="form-group col-md-2">
           <label htmlFor="search">&nbsp;</label>
-          <button id="search" name="search" className="btn btn-success form-control" type="button"
+          <button id="search" name="search" className="btn btn-primary form-control" type="button"
                   onClick={this.handleSubmit} tabIndex="8">Search
           </button>
         </div>

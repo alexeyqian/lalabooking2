@@ -36,7 +36,7 @@ const HotelListRow = ({hotel}) => {
           </div>
 
           <div className="clearfix">
-            <div className="booknow"><button className="btn btn-success">Book Now</button></div>
+            <div className="booknow"><button className="btn btn-primary">Book Now</button></div>
             <div className="price">${hotel.price}</div>
           </div>
 
