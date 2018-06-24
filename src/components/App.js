@@ -6,10 +6,7 @@ import {view as HomePage} from './homePage';
 import {LoginPage, RegisterPage, ChangePasswordPage, ProfilePage} from './account';
 import AboutPage from './AboutPage';
 import PrivateRoute from './common/PrivateRoute';
-
-//import SearchPage from '../x_not_used/SearchPage';
-//import CoursesPage from '../x_not_used/course/CoursesPage';
-//import CourseManagePage from '../x_not_used/course/CourseManagePage';
+import {view as MyOrderPage} from './myOrderPage';
 import NotFoundPage from './NotFoundPage';
 import Header from './common/Header';
 import {connect} from 'react-redux';
@@ -55,6 +52,7 @@ class App extends React.Component {
             <Route path="/about" component={AboutPage} />
             <PrivateRoute exact path="/changePassword" component={ChangePasswordPage} />
             <PrivateRoute exact path="/profile" component={ProfilePage} />
+            <PrivateRoute exact path="/myorders" component={MyOrderPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

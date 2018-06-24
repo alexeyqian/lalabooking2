@@ -4,7 +4,8 @@ import {Link, NavLink} from 'react-router-dom';
 import LoadingDots from './LoadingDots';
 
 const Header = ({loading, user, onLogout}) => {
-  {/*const activeStyle = { color: 'blue' };*/}
+  {/*const activeStyle = { color: 'blue' };*/
+  }
   const isLoggedIn = user && user.isLoggedIn;
 
   return (
@@ -15,7 +16,7 @@ const Header = ({loading, user, onLogout}) => {
       <button className="navbar-toggler" type="button"
               data-toggle="collapse" data-target="#navbarTopMenu"
               aria-controls="navbarTopMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon" />
+        <span className="navbar-toggler-icon"/>
       </button>
 
       <div className="collapse navbar-collapse justify-content-end" id="navbarTopMenu">
@@ -24,13 +25,16 @@ const Header = ({loading, user, onLogout}) => {
 
           {isLoggedIn &&
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+               aria-expanded="false">
               <i className="fas fa-user"/><span className="ml-1">Account</span>
             </a>
             <div className="dropdown-menu">
-              <Link className="dropdown-item" to="/profile" >Profile</Link>
-              <Link className="dropdown-item" to={'/changePassword'} >Change password</Link>
-
+              <Link className="dropdown-item" to="/myOrders">My Orders</Link>
+              <Link className="dropdown-item" to="/myPaymentMethods">My Payment Methods</Link>
+              <div className="dropdown-divider"/>
+              <Link className="dropdown-item" to="/profile">Profile</Link>
+              <Link className="dropdown-item" to={'/changePassword'}>Change password</Link>
               <div className="dropdown-divider"/>
               <a className="dropdown-item" onClick={onLogout}>Logout</a>
             </div>

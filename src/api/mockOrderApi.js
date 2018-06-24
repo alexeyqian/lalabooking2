@@ -28,6 +28,20 @@ class OrderApi {
       }, delay);
     });
   }
+
+  static getMyOrders(username) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if(!username) return [];
+        const orders = [
+          {id: 'o_001', hotel_id: 'h_001'},
+          {id: 'o_002', hotel_id: 'h_002'}
+        ];
+        resolve(orders);
+      }, delay);
+    });
+  }
+
 }
 
 export default OrderApi;
