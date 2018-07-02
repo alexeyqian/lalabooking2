@@ -1,250 +1,161 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const HotelFilter = () => {
-  return (
-    <div className="filter-panel">
-      <div className="filter-panel-header">Filter by:</div>
-      <div>
+import facilities from '../../../data/facility_search';
+import rankings from '../../../data/hotel_ranking';
+import brands from '../../../data/brand';
+import priceRange from '../../../data/price_range';
 
-    <div className="filter-panel-body">
-      <h5>Your budget</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>$0 - $99 per night</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>$100 - $199 per night</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>$200 - $299 per night</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>$300 - $399 per night</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>$400 - $499 per night</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>$500+ per night</span>
-        </li>
-      </ul>
+class HotelFilter extends React.Component {
+  constructor(props, context) {
+    super(props, context);
 
-      <h5>Fun things to do</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Sauna</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Fitness Center</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Spa</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Massage</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Indoor Pool</span>
-        </li>
-      </ul>
+    this.state = {
+      city_id: '',
+      location_id: '',
+      price_from: 0,
+      price_to: 0,
+      ranks: [],
+      brands: [],
+      facilities: []
+    };
 
-      <h5>Star rating</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>2 stars</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>3 stars</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>4 stars</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>5+ stars</span>
-        </li>
-      </ul>
+    this.handleRankChange = this.handleRankChange.bind(this);
+    this.handleBrandChange = this.handleBrandChange.bind(this);
 
-      <h5>Deals & discounts</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Great value today</span>
-        </li>
-      </ul>
+  }
 
-      <h5>24-Hour front desk</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Front desk open 24/7</span>
-        </li>
-      </ul>
+  /*
+  handlePriceChange(event) {
+    const target = event.target;
+    const value = target.id.replace('pr_','');
 
-      <h5>Free cancellation & more</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Free cancellation</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Book without credit card</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>No prepayment</span>
-        </li>
-      </ul>
+    const arr = value.split('-');
+    this.setState({
+      price_from: arr[0],
+      price_to: arr[1]
+    });
+  }*/
 
-      <h5>Meals</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Breakfast included</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Breakfast and dinner included</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Kitchen facilities</span>
-        </li>
-      </ul>
+  handleRankChange(event) {
+    const target = event.target;
+    const value = target.id.replace('rank_','');
+    let newValue = this.state.ranks;
 
-      <h5>Bed Preference</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Twin beds</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Double bed</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>King bed</span>
-        </li>
-      </ul>
+    const index = newValue.indexOf(value);
 
-      <h5>Review Score</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>1 star</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>2 stars</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>3 stars</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>4 stars</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>5 stars</span>
-        </li>
-      </ul>
+    if(event.target.checked)
+    {
+      if (index <= -1) newValue.push(value);
+    }
+    else{ // remove it from ranks
+      if (index > -1) newValue.splice(index, 1);
+    }
 
-      <h5>Facility</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Facilities for disabled guests</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Room service</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Restaurant</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Free WiFi</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Fitness Center</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Parking</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Swimming Pool</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Spa</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Airport Shuttle</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Pet friendly</span>
-        </li>
-      </ul>
+    //alert(JSON.stringify(newValue));
 
-      <h5>Room facility</h5>
+    this.setState({
+      ranks: newValue
+    });
+  }
 
-      <h5>Chain</h5>
-      <ul className="hotel-filter-list">
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Courtyard by Marriott</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Crowne Plaza Hotels & Resorts</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Holiday inn hotels & reSORTS</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Jin Jiang Hotels</span>
-        </li>
-        <li>
-          <span><input id="checkBox" type="checkbox" /></span>
-          <span>Ramada</span>
-        </li>
-      </ul>
+  handleBrandChange(event) {
+    const target = event.target;
+    const value = target.id.replace('brand_','');
+    let newValue = this.state.brands;
 
-      <h5>Neighborhood</h5>
+    const index = newValue.indexOf(value);
 
-    </div>
+    if(event.target.checked)
+    {
+      if (index <= -1) newValue.push(value);
+    }
+    else{ // remove it from ranks
+      if (index > -1) newValue.splice(index, 1);
+    }
 
+    //alert(JSON.stringify(newValue));
+
+    this.setState({
+      brands: newValue
+    });
+  }
+
+  render() {
+
+    return (
+      <div className="filter-panel">
+        <div className="filter-panel-header">Filter by:</div>
+        <div>
+
+          <div className="filter-panel-body">
+            <h5>Your budget / per night</h5>
+            <ul className="hotel-filter-list">
+              {
+                priceRange.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <span><input id={"pr_" + item.id} type="checkbox"/></span>
+                      <span>{item.name}</span>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+
+            <h5>Stars</h5>
+            <ul className="hotel-filter-list">
+              {
+                rankings.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <span><input id={"rank_" + item.id} type="checkbox" onChange={this.handleRankChange}/></span>
+                      <span>{item.name}</span>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+
+            <h5>Brand</h5>
+            <ul className="hotel-filter-list">
+              {
+                brands.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <span><input id={"brand_" + item.id} type="checkbox" onChange={this.handleBrandChange}/></span>
+                      <span>{item.name}</span>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+
+            <h5>Facility</h5>
+            <ul className="hotel-filter-list">
+              {
+                facilities.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <span><input id={"fa_" + item.id} type="checkbox"/></span>
+                      <span>{item.name}</span>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+
+          </div>
+
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 
+}
+
+HotelFilter.propTypes = {
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default HotelFilter;

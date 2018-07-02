@@ -149,7 +149,7 @@ class HomeSearchComponent extends React.Component {
           />
         </div>
 
-        <div className="form-group col-md-2">
+        <div className="form-group col-md-3">
           <label htmlFor="checkin">Check-in</label>
           <DatePicker selected={this.state.checkin}
                       onChange={this.handleChangeCheckin}
@@ -157,7 +157,7 @@ class HomeSearchComponent extends React.Component {
                       placeholderText="Check in (optional)"/>
         </div>
 
-        <div className="form-group col-md-2">
+        <div className="form-group col-md-3">
           <label htmlFor="checkout">Check-out</label>
           <DatePicker selected={this.state.checkout}
                       onChange={this.handleChangeCheckout}
@@ -194,7 +194,7 @@ class HomeSearchComponent extends React.Component {
 
         <div className="form-group col-md-2">
           <label htmlFor="search">&nbsp;</label>
-          <button id="search" name="search" className="btn btn-primary form-control" type="button"
+          <button id="search" name="search" className="btn btn-primary form-control float-right" type="button"
                   onClick={this.handleSubmit} tabIndex="8">Search
           </button>
         </div>

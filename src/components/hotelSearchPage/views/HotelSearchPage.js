@@ -42,7 +42,7 @@ class HotelSearchPage extends React.Component{
           <div className="side-search-panel bg-light" />
           <br/>
           <div>
-            <HotelFilter/>
+            <HotelFilter onSubmit={this.handelFilterChange}/>
           </div>
 
         </div>
