@@ -28,9 +28,11 @@
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
+
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.18.0",
     "bootstrap": "4.1.1",
     "google-map-react": "1.0.4",
     "jquery": "3.2.1",
@@ -80,6 +82,7 @@
     "file-loader": "0.11.2",
     "history": "4.6.0",
     "html-webpack-plugin": "2.29.0",
+    "http-proxy-middleware": "0.18.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "20.0.4",
     "jest-cli": "20.0.4",

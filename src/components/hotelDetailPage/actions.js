@@ -1,5 +1,5 @@
 import {LOAD_HOTEL_SUCCESS} from './actionTypes';
-import hotelApi from '../../api/mockHotelApi';
+import hotelApi from '../../apiClient/mockHotelApi';
 import {beginAjaxCall} from "../../actions/ajaxStatusActions";
 
 export function loadHotelSuccess(hotel){

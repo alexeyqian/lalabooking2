@@ -1,5 +1,5 @@
 import {LOAD_MY_ORDERS_SUCCESS} from './actionTypes';
-import OrderApi from '../../api/mockOrderApi';
+import OrderApi from '../../apiClient/mockOrderApi';
 import {beginAjaxCall} from "../../actions/ajaxStatusActions";
 
 export function loadMyOrdersSuccess(orders){

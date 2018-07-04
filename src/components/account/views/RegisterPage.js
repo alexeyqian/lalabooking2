@@ -13,11 +13,18 @@ class RegisterPage extends React.Component {
       username: '',
       password: '',
       confirmPassword: '',
-      //submitted: false
+      movies: []
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    /*
+      fetch('/api/v1/movies')
+      .then(res => res.json())
+      .then(json => this.setState({movies: json.data}));*/
   }
 
   handleInputChange(event) {
@@ -48,7 +55,11 @@ class RegisterPage extends React.Component {
 
     return (
       <div className="row">
-
+        {/*this.state.movies.length &&
+          this.state.movies.map(m =>
+            <div key={m.name} className="col-md-12">{m.name}</div>
+          )
+        */}
         <div className="col-md-6 offset-md-3">
           <h1>Register</h1>
 
@@ -66,7 +77,8 @@ class RegisterPage extends React.Component {
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input type="password" value={this.state.confirmPassword} onChange={this.handleInputChange}
-                     className="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirm Password"/>
+                     className="form-control" id="confirmPassword" name="confirmPassword"
+                     placeholder="confirm Password"/>
             </div>
 
             <button type="submit" className="btn btn-primary">Register</button>

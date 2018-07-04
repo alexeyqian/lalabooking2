@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import orderApi from '../../api/mockOrderApi';
+import orderApi from '../../apiClient/mockOrderApi';
 import {beginAjaxCall} from "../../actions/ajaxStatusActions";
 
 export function createOrderSuccess(order){

@@ -1,5 +1,5 @@
 import {SEARCH_HOTELS_SUCCESS} from "./actionTypes";
-import HotelApi from '../../api/mockHotelApi';
+import HotelApi from '../../apiClient/mockHotelApi';
 import {beginAjaxCall} from "../../actions/ajaxStatusActions";
 
 export function searchHotelsSuccess(hotels){

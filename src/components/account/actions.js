@@ -1,5 +1,5 @@
 import {REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, CHANGE_PASSWORD_SUCCESS} from './actionTypes';
-import AccountApi from '../../api/mockAccountApi';
+import AccountApi from '../../apiClient/accountApi';
 import {beginAjaxCall, ajaxCallError} from "../../actions/ajaxStatusActions";
 import { push } from 'react-router-redux';
 import toastr from 'toastr';
@@ -32,10 +32,13 @@ export function changePasswordSuccess(){
 export function register(user){
   return function(dispatch){
     dispatch(beginAjaxCall());
-    return AccountApi.register(user)
+
+    AccountApi.register(user)
       .then(
-        user => {
-          dispatch(registerSuccess(user));
+        response => {
+          const newUser = {id: response.data.newId, username: user.username, token: response.data.token};
+          localStorage.setItem('user', JSON.stringify(newUser));
+          dispatch(registerSuccess(newUser));
           dispatch(push('/login'));
         })
       .catch(

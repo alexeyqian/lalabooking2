@@ -20,8 +20,8 @@ class HotelSearchPage extends React.Component{
     this.props.actions.searchHotels();
   }
 
-  handelFilterChange(){
-
+  handelFilterChange(filter){
+    alert(JSON.stringify(filter));
   }
 
   handelSelectHotel(id){

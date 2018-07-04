@@ -9,7 +9,7 @@ import CheckinCheckout from './CheckinCheckout';
 import HotelMap from './HotelMap';
 import NearByHotelList from './NearByHotelList';
 import ImageGallery from 'react-image-gallery';
-import HotelApi from '../../../api/mockHotelApi';
+import HotelApi from '../../../apiClient/mockHotelApi';
 import * as ajaxStatusActions from '../../../actions/ajaxStatusActions';
 
 import "react-image-gallery/styles/css/image-gallery.css";

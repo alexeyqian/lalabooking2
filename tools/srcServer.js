@@ -9,9 +9,16 @@ import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import proxy from 'http-proxy-middleware';
 import config from '../webpack.config.dev';
 
 const bundler = webpack(config);
+
+const serverProxy = proxy('/api', {
+  target: 'http://localhost:4000',
+  changeOrigin: false,
+  logLevel: 'debug'
+});
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
@@ -24,6 +31,7 @@ browserSync({
 
     middleware: [
       historyApiFallback(),
+      serverProxy,
 
       webpackDevMiddleware(bundler, {
         // Dev middleware can't access config, so we provide publicPath

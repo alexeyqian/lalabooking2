@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import paymentApi from '../api/mockPaymentApi';
+import paymentApi from '../apiClient/mockPaymentApi';
 import {beginAjaxCall} from "./ajaxStatusActions";
 
 export function createPaymentSuccess(payment){

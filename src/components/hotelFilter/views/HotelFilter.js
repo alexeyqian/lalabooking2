@@ -20,22 +20,24 @@ class HotelFilter extends React.Component {
       facilities: []
     };
 
+    this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handleRankChange = this.handleRankChange.bind(this);
     this.handleBrandChange = this.handleBrandChange.bind(this);
-
+    this.handleFacilityChange = this.handleFacilityChange.bind(this);
   }
 
-  /*
   handlePriceChange(event) {
     const target = event.target;
-    const value = target.id.replace('pr_','');
+    const value = target.value;
 
-    const arr = value.split('-');
+    const newValue = value.split('-');
+    //alert(JSON.stringify(newValue));
+
     this.setState({
-      price_from: arr[0],
-      price_to: arr[1]
-    });
-  }*/
+      price_from: newValue[0],
+      price_to: newValue[1]
+    } , () => {this.props.onSubmit(this.state);});
+  }
 
   handleRankChange(event) {
     const target = event.target;
@@ -56,7 +58,7 @@ class HotelFilter extends React.Component {
 
     this.setState({
       ranks: newValue
-    });
+    }, () => {this.props.onSubmit(this.state); });
   }
 
   handleBrandChange(event) {
@@ -78,7 +80,29 @@ class HotelFilter extends React.Component {
 
     this.setState({
       brands: newValue
-    });
+    }, () => {this.props.onSubmit(this.state); });
+  }
+
+  handleFacilityChange(event) {
+    const target = event.target;
+    const value = target.id.replace('facility_','');
+    let newValue = this.state.brands;
+
+    const index = newValue.indexOf(value);
+
+    if(event.target.checked)
+    {
+      if (index <= -1) newValue.push(value);
+    }
+    else{ // remove it from ranks
+      if (index > -1) newValue.splice(index, 1);
+    }
+
+    //alert(JSON.stringify(newValue));
+
+    this.setState({
+      facilities: newValue
+    }, () => {this.props.onSubmit(this.state); });
   }
 
   render() {
@@ -89,13 +113,16 @@ class HotelFilter extends React.Component {
         <div>
 
           <div className="filter-panel-body">
-            <h5>Your budget / per night</h5>
+            <h5>Budget / night</h5>
             <ul className="hotel-filter-list">
               {
                 priceRange.map(item => {
                   return (
                     <li key={item.id}>
-                      <span><input id={"pr_" + item.id} type="checkbox"/></span>
+                      <span>
+                        <input id={"price_" + item.id} name="price" type="radio"
+                               value={item.id} onChange={this.handlePriceChange}/>
+                      </span>
                       <span>{item.name}</span>
                     </li>
                   );
@@ -137,7 +164,7 @@ class HotelFilter extends React.Component {
                 facilities.map(item => {
                   return (
                     <li key={item.id}>
-                      <span><input id={"fa_" + item.id} type="checkbox"/></span>
+                      <span><input id={"facility_" + item.id} type="checkbox" onChange={this.handleFacilityChange}/></span>
                       <span>{item.name}</span>
                     </li>
                   );
