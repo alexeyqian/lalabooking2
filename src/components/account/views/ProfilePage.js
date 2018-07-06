@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions';
-import {Redirect} from 'react-router-dom';
+//import {Redirect} from 'react-router-dom';
 import UserSideMenu from '../../../components/common/UserSideMenu';
 
 class ProfilePage extends React.Component {
@@ -11,9 +11,8 @@ class ProfilePage extends React.Component {
     super(props, context);
 
     this.state = {
-      username: '',
-      firstName: '',
-      lastName: '',
+      firstname: '',
+      lastname: '',
       mobile: ''
     };
 
@@ -22,15 +21,11 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    // load user profile to state
-    const userStr = localStorage.getItem('user');
-    const user = JSON.parse(userStr);
-    this.props.actions.loadProfile(user.username).then(u => this.setState(
+    this.props.actions.loadProfile().then(u => this.setState(
       {
-        username: u.username,
-        firstName: u.firstName,
-        lastName: u.lastName,
-        mobile: u.mobile
+        firstname: u.firstname || '',
+        lastname: u.lastname || '',
+        mobile: u.mobile || ''
       }
     ));
   }
@@ -52,11 +47,6 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const userStr = localStorage.getItem('user');
-    const user = JSON.parse(userStr);
-    if (!user || !user.isLoggedIn) {
-      return <Redirect to="/login"/>;
-    }
 
     return (
       <div className="row">
@@ -72,13 +62,13 @@ class ProfilePage extends React.Component {
 
               <div className="form-group">
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" value={this.state.firstName} onChange={this.handleInputChange}
+                <input type="text" value={this.state.firstname} onChange={this.handleInputChange}
                        className="form-control" id="firstName" name="firstName" placeholder="First Name"/>
               </div>
 
               <div className="form-group">
                 <label htmlFor="lastName">Last Name</label>
-                <input type="text" value={this.state.lastName} onChange={this.handleInputChange}
+                <input type="text" value={this.state.lastname} onChange={this.handleInputChange}
                        className="form-control" id="lastName" name="lastName" placeholder="Last Name"/>
               </div>
 

@@ -1,23 +1,31 @@
 import axios from 'axios';
+import {authHeader} from '../utils/authHeader';
 
 class AccountApi {
 
   static register(user) {
-
     return axios.post('/api/v1/register', user);
-      /*.then(function (response) {
-        if (response.data.status === 'success') {
-          const newUser = {id: response.data.newId, username: user.username, token: response.data.token};
-          localStorage.setItem('user', JSON.stringify(newUser));
-          return newUser;
-        }
-        else
-          throw 'cannot register.';
-      })
-      .catch(function (error) {
-        //console.log(error);
-        throw error;
-      });*/
+  }
+
+  static login(username, password) {
+    return axios.post('/api/v1/login', {username, password});
+  }
+
+  static changePassword(password, newPassword) {
+    return axios.post('/api/v1/users/changePassword',
+      {password, newPassword},
+      {headers: authHeader()});
+  }
+
+  static loadProfile() {
+    return axios.get('/api/v1/users/profile',
+      {headers: authHeader()});
+  }
+
+  static updateProfile(user) {
+    return axios.post('/api/v1/users/profile',
+      {user},
+      {headers: authHeader()});
   }
 
 }

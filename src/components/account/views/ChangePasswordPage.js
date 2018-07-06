@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions';
-import {Redirect} from 'react-router-dom';
 import toastr from 'toastr';
 import UserSideMenu from '../../../components/common/UserSideMenu';
 
@@ -39,17 +38,16 @@ class ChangePasswordPage extends React.Component {
       return;
     }
 
-    const userStr = localStorage.getItem('user');
-    const user = JSON.parse(userStr);
-    this.props.actions.changePassword(user.username, this.state.currentPassword, this.state.newPassword);
+    this.props.actions.changePassword(this.state.currentPassword, this.state.newPassword);
   }
 
   render() {
+    /*
     const userStr = localStorage.getItem('user');
     const user = JSON.parse(userStr);
     if (!user || !user.isLoggedIn) {
       return <Redirect to="/login"/>;
-    }
+    }*/
 
     return (
 
