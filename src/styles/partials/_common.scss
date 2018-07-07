@@ -10,18 +10,13 @@
 @import "miniab";
 @import "miniexpandable";
 
-
-/* Fix react date picker size */
-.react-datepicker-wrapper, .react-datepicker__input-container, .react-datepicker__input-container {
-  width: 100%;
-}
-
 /* Common Styles*/
+/*
 * {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
-}
+}*/
 
 .fixed {
     position: fixed;

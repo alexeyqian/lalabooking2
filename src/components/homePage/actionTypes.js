@@ -1,1 +1,1 @@
-export const UPDATE_QUERY = 'UPDATE_QUERY';
+export const LOAD_HOT_CITIES = 'LOAD_HOT_CITIES';

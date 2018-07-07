@@ -1,5 +1,5 @@
-import {UPDATE_QUERY} from "./actionTypes";
+import * as ActionTypes from "./actionTypes";
 
-export function updateQuery(query){
-  return {type: UPDATE_QUERY, query};
+export function loadHotCities(cities){
+  return {type: ActionTypes.LOAD_HOT_CITIES, cities};
 }

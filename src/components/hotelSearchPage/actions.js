@@ -1,19 +1,22 @@
-import {SEARCH_HOTELS_SUCCESS} from "./actionTypes";
+import * as ActionTypes from "./actionTypes";
 import HotelApi from '../../apiClient/mockHotelApi';
 import {beginAjaxCall} from "../../actions/ajaxStatusActions";
 
 export function searchHotelsSuccess(hotels){
-  return {type: SEARCH_HOTELS_SUCCESS, hotels};
+  return {type: ActionTypes.SEARCH_HOTELS_SUCCESS, hotels};
 }
 
 // begin thunk
 
-export function searchHotels(){
+export function searchHotels(query){
   return dispatch => {
     dispatch(beginAjaxCall());
-    return HotelApi.getAllHotels().then(hotels => {
-      dispatch(searchHotelsSuccess(hotels));
-    }).catch(error => {throw(error);});
+
+    HotelApi.search(query)
+      .then(hotels => {
+        dispatch(searchHotelsSuccess(hotels));
+      });
+
   };
 }
 

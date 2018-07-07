@@ -13,7 +13,6 @@ class HomePage extends React.Component {
   }
 
   redirectToHotelsPage(query, url) {
-    this.props.actions.updateQuery(query);
     this.props.history.push(url);
   }
 
@@ -31,14 +30,10 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
   history: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    query: state.query
-  };
-}
+
 
 function mapDispatchToProps(dispatch){
    return {
@@ -46,4 +41,4 @@ function mapDispatchToProps(dispatch){
    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(null, mapDispatchToProps)(HomePage);

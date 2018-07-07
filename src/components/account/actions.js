@@ -1,4 +1,4 @@
-import {REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, CHANGE_PASSWORD_SUCCESS} from './actionTypes';
+import * as ActionTypes from './actionTypes';
 import AccountApi from '../../apiClient/accountApi';
 import {beginAjaxCall, ajaxCallError} from "../../actions/ajaxStatusActions";
 import { push } from 'react-router-redux';
@@ -6,28 +6,40 @@ import toastr from 'toastr';
 
 
 export function registerSuccess(user){
-  return {type: REGISTER_SUCCESS, user};
+  return {type: ActionTypes.REGISTER_SUCCESS, user};
 }
 
 export function registerFail(error){
-  return {type: REGISTER_FAIL, error};
+  return {type: ActionTypes.REGISTER_FAIL, error};
 }
 
 export function loginSuccess(user){
-  return {type: LOGIN_SUCCESS, user};
+  return {type: ActionTypes.LOGIN_SUCCESS, user};
 }
 
 export function loginFail(error){
-  return {type: LOGIN_FAIL, error};
+  return {type: ActionTypes.LOGIN_FAIL, error};
 }
 
 export function logout(){
-  return {type: LOGOUT};
+  return {type: ActionTypes.LOGOUT};
 }
 
 export function changePasswordSuccess(){
-  return {type: CHANGE_PASSWORD_SUCCESS};
+  return {type: ActionTypes.CHANGE_PASSWORD_SUCCESS};
 }
+
+/* example async
+*
+export function fetchPublishedPosts() {
+  return async function (dispatch, getState) {
+    dispatch({type: 'LOADING', loading: true});
+    const posts = await postService.fetch('published');
+    dispatch({type: 'ADD_POSTS', newPosts: posts});
+    dispatch({type: 'LOADING', loading: false});
+  };
+}
+* */
 
 // begin thunk functions
 export function register(user){

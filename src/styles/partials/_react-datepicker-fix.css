@@ -1,3 +1,11 @@
+
+/* Fix react date picker size */
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container {
+  width: 100%;
+}
+
 /* fix date picker size issue*/
 .react-datepicker-wrapper{
   width:100%;

@@ -1,10 +1,9 @@
 import * as ActionTypes from './actionTypes';
 
-export default function homePageReducer(state = {}, action){
+export default function queryReducer(state = {}, action){
   switch (action.type){
-    case ActionTypes.LOAD_HOT_CITIES:
-
-      return {};
+    case ActionTypes.UPDATE_QUERY:
+      return {...state, ...action.query};
 
     default:
       return state;

@@ -2,16 +2,17 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-//import SideSearch from '../hotel/SideSearch';
+import {view as Search} from '../../searchOnHome';
 
 import * as actions from '../actions';
-import {view as HotelList} from '../../hotelList';
+import HotelList from './HotelList';
 import {view as HotelFilter} from '../../hotelFilter';
 
 class HotelSearchPage extends React.Component{
   constructor(props, context){
     super(props, context);
 
+    this.handelSearchChange = this.handelSearchChange.bind(this);
     this.handelFilterChange = this.handelFilterChange.bind(this);
     this.handelSelectHotel = this.handelSelectHotel.bind(this);
   }
@@ -20,8 +21,14 @@ class HotelSearchPage extends React.Component{
     this.props.actions.searchHotels();
   }
 
+  handelSearchChange(query, url){
+    this.props.actions.searchHotels(query);
+    this.props.history.push(url);
+  }
+
   handelFilterChange(filter){
-    alert(JSON.stringify(filter));
+    this.props.actions.searchHotels(filter);
+    //alert(JSON.stringify(filter));
   }
 
   handelSelectHotel(id){
@@ -31,22 +38,33 @@ class HotelSearchPage extends React.Component{
   render(){
     const {hotels} = this.props;
 
-    let hotelList = <HotelList hotels={hotels}/>;
-
-    if(!hotels || hotels.length <= 0)
-      hotelList = <div>No hotels found</div>;
+    let hotelList = null;
+    if(!this.props.loading)
+    {
+      if(hotels && hotels.length > 0)
+        hotelList = <HotelList hotels={hotels}/>;
+      else
+        hotelList = <div>No hotels found</div>;
+    }
 
     return(
       <div className="row no-gutters">
         <div className="col-md-3">
-          <div className="side-search-panel bg-light" />
-          <br/>
           <div>
             <HotelFilter onSubmit={this.handelFilterChange}/>
           </div>
 
         </div>
         <div className="col-md-9">
+
+          <div className="bg-light mb-2 p-2">
+            <Search onSearch={this.handelSearchChange}/>
+          </div>
+
+          {this.props.loading &&
+          <div className="loader" />
+          }
+
           <div className="ml-1">
             {hotelList}
           </div>
@@ -61,20 +79,18 @@ class HotelSearchPage extends React.Component{
 HotelSearchPage.propTypes = {
   history: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
-  hotels: PropTypes.array.isRequired
+  hotels: PropTypes.array,
+  loading: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state){
-  let hotels = state.hotels;
-  if(!hotels)
-    hotels = [];
-  let query = state.query;
-  if(!query)
-    query = {};
+  let hotels = state.hotels || [];
+  let query = state.query || {};
 
   return {
     hotels,
-    query
+    query,
+    loading: state.ajaxCallsInProgress > 0
   };
 }
 

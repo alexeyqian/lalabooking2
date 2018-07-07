@@ -28,7 +28,6 @@
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
-
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
@@ -50,6 +49,7 @@
     "react-router-redux": "5.0.0-alpha.6",
     "redux": "3.6.0",
     "redux-thunk": "2.1.0",
+    "reselect": "3.0.1",
     "toastr": "2.1.4"
   },
   "devDependencies": {

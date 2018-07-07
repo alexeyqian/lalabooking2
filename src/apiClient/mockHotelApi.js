@@ -240,8 +240,9 @@ const hotels = [
 // };
 
 class HotelApi {
-  static getAllHotels() {
+  static search(query) {
     return new Promise((resolve) => {
+      query = {query};
       setTimeout(() => {
         resolve(Object.assign([], hotels));
       }, delay);

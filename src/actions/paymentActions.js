@@ -1,3 +1,4 @@
+/*
 import * as types from '../constants/actionTypes';
 import paymentApi from '../apiClient/mockPaymentApi';
 import {beginAjaxCall} from "./ajaxStatusActions";
@@ -20,3 +21,4 @@ export function createPayment(){
 }
 
 // end thunk functions
+*/

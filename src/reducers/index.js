@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 import ajaxCallsInProgress from './ajaxStatusReducer';
-import {reducer as query} from '../components/homePage';
+import {reducer as query} from '../components/searchOnHome';
 import {reducer as hotels} from '../components/hotelSearchPage';
 import {reducer as hotel} from '../components/hotelDetailPage';
 import {reducer as order} from '../components/orderPage';

@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Autocomplete from 'react-autocomplete';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions';
 import cities from '../../../data/city';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -12,11 +15,11 @@ class HomeSearchComponent extends React.Component {
     super(props, context);
 
     this.state = {
-      selectedCity: '',
-      checkin: new moment(),
-      checkout: moment().add(1, 'days'),
-      adults: 2,
-      children: 0
+      city: this.props.query.city || '',
+      checkin: this.props.query.checkin || new moment().add(1, 'days'),
+      checkout: this.props.query.checkout || new moment().add(3, 'days'),
+      adults: this.props.query.adults || 2,
+      children: this.props.query.children || 0
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,8 +40,11 @@ class HomeSearchComponent extends React.Component {
 
   handleSubmit() {
     event.preventDefault();
+
+    //alert(JSON.stringify(window.location));
+
     const cityObj = cities.filter((city) => {
-      return city.city_name === this.state.selectedCity;
+      return city.city_name === this.state.city;
     })[0];
     let cityUrl = cityObj.city_name;
     if (!cityObj.is_state_city)
@@ -48,7 +54,8 @@ class HomeSearchComponent extends React.Component {
     let url = '/hotels/' + cityUrl + parameters;
     //alert(url);
     // window.location.href = url.replaceAll(' ','-');
-    //debugger;
+
+    this.props.actions.updateQuery(this.state);
     this.props.onSearch(this.state, url.toLowerCase());
   }
 
@@ -142,10 +149,21 @@ class HomeSearchComponent extends React.Component {
             renderInput={props =>
               <input className="form-control" {...props} />
             }
-            value={this.state.selectedCity}
-            onChange={(event, value) => this.setState({selectedCity: value})}
-            onSelect={value => this.setState({selectedCity: value})}
+            value={this.state.city}
+            onChange={(event, value) => this.setState({city: value})}
+            onSelect={value => this.setState({city: value})}
             wrapperStyle={{display: 'block'}}
+            menuStyle={{
+              borderRadius: '3px',
+              boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
+              background: 'rgba(255, 255, 255, 0.9)',
+              padding: '2px 0',
+              fontSize: '90%',
+              position: 'fixed',
+              overflow: 'auto',
+              maxHeight: '50%', // TODO: don't cheat, let it flow to the bottom
+              zIndex: '998',
+            }}
           />
         </div>
 
@@ -205,7 +223,25 @@ class HomeSearchComponent extends React.Component {
 }
 
 HomeSearchComponent.propTypes = {
-  onSearch: PropTypes.func.isRequired
+  history: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+  query: PropTypes.object,
+  onSearch: PropTypes.func
 };
 
-export default HomeSearchComponent;
+function mapStateToProps(state) {
+  // if state.query is empty, means user navigate to this page directly from search engine
+  // then need to re-construct query object from url path
+  // ... need to implement later.
+  return {
+    query: state.query || {}
+  };
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeSearchComponent);
