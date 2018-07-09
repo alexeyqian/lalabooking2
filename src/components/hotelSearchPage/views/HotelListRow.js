@@ -36,7 +36,9 @@ const HotelListRow = ({hotel}) => {
           </div>
 
           <div className="clearfix">
-            <div className="booknow"><button className="btn btn-primary">Book Now</button></div>
+            <div className="booknow">
+              <a href={'/hotel/'+ hotel.id} className="btn btn-primary" target="_blank">View Detail</a>
+            </div>
             <div className="price">${hotel.price}</div>
           </div>
 

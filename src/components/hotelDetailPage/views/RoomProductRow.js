@@ -11,7 +11,7 @@ const RoomProductRow = ({product}) => {
       <td>{p.breakfast}</td>
       <td>{p.cancellationPolicy}</td>
       <td>{p.price} {p.currency}</td>
-      <td><Link className="btn btn-primary" to="/order">View</Link></td>
+      <td><Link className="btn btn-primary" to="/order">Book now</Link></td>
     </tr>
   );
 };

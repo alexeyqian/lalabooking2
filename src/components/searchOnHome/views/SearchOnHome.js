@@ -56,6 +56,8 @@ class HomeSearchComponent extends React.Component {
     // window.location.href = url.replaceAll(' ','-');
 
     this.props.actions.updateQuery(this.state);
+    // store query in local storage, for hotel detail page to restore it
+    localStorage.setItem('query', JSON.stringify(this.state));
     this.props.onSearch(this.state, url.toLowerCase());
   }
 
@@ -223,7 +225,7 @@ class HomeSearchComponent extends React.Component {
 }
 
 HomeSearchComponent.propTypes = {
-  history: PropTypes.object.isRequired,
+  history: PropTypes.object,
   actions: PropTypes.object.isRequired,
   query: PropTypes.object,
   onSearch: PropTypes.func

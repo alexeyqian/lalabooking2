@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
+import moment from 'moment';
 import * as actions from '../actions';
 import RoomTypeList from './RoomTypeList';
 import CheckinCheckout from './CheckinCheckout';
@@ -47,8 +48,8 @@ class HotelDetailPage extends React.Component {
   }
 
   onChangeDates(){
-
-    // ...
+    // dates changed, need to re-search the rooms
+    alert('re-search rooms');
   }
 
   render() {
@@ -69,7 +70,6 @@ class HotelDetailPage extends React.Component {
         <div className="row">
 
           <div className="col-md-8">
-            <Link to="/hotels">Back to hotels</Link>
 
             <h1>Hotel: {hotel.name}</h1>
             <span>{hotel.id} - {hotel.category}</span>
@@ -105,15 +105,30 @@ HotelDetailPage.propTypes = {
   id: PropTypes.string.isRequired,
   hotel: PropTypes.object,
   query: PropTypes.object,
-  actions: PropTypes.object.isRequired,
-  //match: PropTypes.object
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+  // if state.query is empty, means directly access this page or open new page
+  // try to restore it from local storage
+  let query = state.query;
+  if(!query || !query.checkin){
+    query = JSON.parse(localStorage.getItem('query'));
+    if(query){ // convert string to moment object
+      query.checkin = moment(query.checkin);
+      query.checkout = moment(query.checkout);
+    }
+  }
+
+
+  // if still can not restore, set default values
+  if(!query || !query.checkin)
+    query ={checkin: moment(), checkout: moment().add(2, 'days')};
+
   return {
     id: ownProps.match.params.id,
     hotel: state.hotel,
-    query: state.query
+    query
   };
 }
 

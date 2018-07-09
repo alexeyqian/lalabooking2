@@ -1,13 +1,13 @@
-import * as types from './actionTypes';
+import * as ActionTypes from './actionTypes';
 import orderApi from '../../apiClient/mockOrderApi';
 import {beginAjaxCall} from "../../actions/ajaxStatusActions";
 
 export function createOrderSuccess(order){
-  return {type: types.CREATE_ORDER_SUCCESS, order};
+  return {type: ActionTypes.CREATE_ORDER_SUCCESS, order};
 }
 
 export function cancelOrderSuccess(order){
-  return {type: types.CANCEL_ORDER_SUCCESS, order};
+  return {type: ActionTypes.CANCEL_ORDER_SUCCESS, order};
 }
 
 // begin thunk functions

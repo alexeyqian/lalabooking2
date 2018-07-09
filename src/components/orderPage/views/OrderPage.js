@@ -109,7 +109,7 @@ let orderBrief = {
   }
 
   render(){
-    const {hotel} = this.state;
+    const {hotel} = this.props;
 
     return(
       <div>
@@ -150,10 +150,22 @@ OrderPage.propTypes = {
 
 function mapStateToProps(state) {
 
+  let hotel = state.hotel;
+  if(!hotel || !hotel.id) // try to restore from local storage.
+    hotel = JSON.parse(localStorage.getItem('hotel'));
+
+  let user = state.user;
+  if(!user || !user.username) // try to restore from local storage.
+    user = JSON.parse(localStorage.getItem('user'));
+
+  let query = state.query;
+  if(!query) // try to restore from local storage.
+    query = JSON.parse(localStorage.getItem('query'));
+
   return {
-    user: state.user,
-    hotel: state.hotel,
-    query: state.query
+    user,
+    hotel,
+    query
   };
 }
 

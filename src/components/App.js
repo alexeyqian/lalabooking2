@@ -47,13 +47,14 @@ class App extends React.Component {
             <Route exact path="/register" component={RegisterPage} />
             <Route path="/hotels" component={HotelSearchPage} />
             <Route path="/hotel/:id" component={HotelDetailPage}/>
-            <Route path="/order" component={OrderPage}/>
-            <Route path="/payment" component={PaymentPage} />
             <Route path="/about" component={AboutPage} />
+
             <PrivateRoute exact path="/changePassword" component={ChangePasswordPage} />
             <PrivateRoute exact path="/profile" component={ProfilePage} />
             <PrivateRoute exact path="/myorders" component={MyOrderPage} />
             <PrivateRoute exact path="/paymentMethods" component={PaymentMethodListPage} />
+            <PrivateRoute exact path="/order" component={OrderPage}/>
+            <PrivateRoute exact path="/payment" component={PaymentPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

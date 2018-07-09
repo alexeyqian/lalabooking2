@@ -13,6 +13,7 @@ export function loadHotelById(id){
     dispatch(beginAjaxCall());
     return hotelApi.getHotelById(id)
       .then(hotel => {
+        localStorage.setItem('hotel', JSON.stringify(hotel));
         dispatch(loadHotelSuccess(hotel));
       })
       .catch(error => {
