@@ -19,12 +19,22 @@ class HotelDetailPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    let checkin = new moment().add(1, 'days');
+    if(this.props.query.checkin)
+      checkin = new moment(this.props.query.checkin);
+
+    let checkout = new moment().add(3, 'days');
+    if(this.props.query.checkout)
+      checkout = new moment(this.props.query.checkout);
+
+
     this.state = {
+      checkin,
+      checkout,
       nearByHotels: []
     };
 
     this.onChangeDates = this.onChangeDates.bind(this);
-
   }
 
   componentWillMount() {
@@ -76,8 +86,8 @@ class HotelDetailPage extends React.Component {
             <div className="hotel-image-gallery">
               <ImageGallery items={hotel.photos}/>
             </div>
-            <CheckinCheckout checkin={this.props.query.checkin}
-                             checkout={this.props.query.checkout}
+            <CheckinCheckout checkin={this.state.checkin}
+                             checkout={this.state.checkout}
                              onChangeDates={this.onChangeDates}/>
             <RoomTypeList roomTypes={hotel.roomTypes}/>
 
@@ -109,26 +119,11 @@ HotelDetailPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  // if state.query is empty, means directly access this page or open new page
-  // try to restore it from local storage
-  let query = state.query;
-  if(!query || !query.checkin){
-    query = JSON.parse(localStorage.getItem('query'));
-    if(query){ // convert string to moment object
-      query.checkin = moment(query.checkin);
-      query.checkout = moment(query.checkout);
-    }
-  }
-
-
-  // if still can not restore, set default values
-  if(!query || !query.checkin)
-    query ={checkin: moment(), checkout: moment().add(2, 'days')};
 
   return {
     id: ownProps.match.params.id,
     hotel: state.hotel,
-    query
+    query: state.query
   };
 }
 

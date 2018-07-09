@@ -14,10 +14,18 @@ class HomeSearchComponent extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    let checkin = new moment().add(1, 'days');
+    if(this.props.query.checkin)
+      checkin = new moment(this.props.query.checkin);
+
+    let checkout = new moment().add(3, 'days');
+    if(this.props.query.checkout)
+      checkout = new moment(this.props.query.checkout);
+
     this.state = {
       city: this.props.query.city || '',
-      checkin: this.props.query.checkin || new moment().add(1, 'days'),
-      checkout: this.props.query.checkout || new moment().add(3, 'days'),
+      checkin,
+      checkout,
       adults: this.props.query.adults || 2,
       children: this.props.query.children || 0
     };
@@ -56,8 +64,6 @@ class HomeSearchComponent extends React.Component {
     // window.location.href = url.replaceAll(' ','-');
 
     this.props.actions.updateQuery(this.state);
-    // store query in local storage, for hotel detail page to restore it
-    localStorage.setItem('query', JSON.stringify(this.state));
     this.props.onSearch(this.state, url.toLowerCase());
   }
 

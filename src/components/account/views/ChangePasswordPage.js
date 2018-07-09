@@ -42,12 +42,6 @@ class ChangePasswordPage extends React.Component {
   }
 
   render() {
-    /*
-    const userStr = localStorage.getItem('user');
-    const user = JSON.parse(userStr);
-    if (!user || !user.isLoggedIn) {
-      return <Redirect to="/login"/>;
-    }*/
 
     return (
 
