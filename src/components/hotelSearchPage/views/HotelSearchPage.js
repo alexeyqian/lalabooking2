@@ -44,7 +44,7 @@ class HotelSearchPage extends React.Component{
       if(hotels && hotels.length > 0)
         hotelList = <HotelList hotels={hotels}/>;
       else
-        hotelList = <div>No hotels found</div>;
+        hotelList = <div>No found</div>;
     }
 
     return(

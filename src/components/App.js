@@ -14,6 +14,7 @@ import {view as HotelSearchPage} from './hotelSearchPage';
 import HotelDetailPage from './hotelDetailPage/views/HotelDetailPage';
 import OrderPage from './orderPage/views/OrderPage';
 import PaymentPage from './payment/PaymentPage';
+import {view as PostListPage} from './postListPage';
 
 class App extends React.Component {
 
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
+            <Route exact path="/posts" component={PostListPage} />
             <Route path="/hotels" component={HotelSearchPage} />
             <Route path="/hotel/:id" component={HotelDetailPage}/>
             <Route path="/about" component={AboutPage} />

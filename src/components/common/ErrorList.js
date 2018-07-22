@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ErrorList extends React.Component {
   render() {
@@ -22,5 +23,9 @@ class ErrorList extends React.Component {
     }
   }
 }
+
+ErrorList.propTypes = {
+  errors: PropTypes.array.isRequired
+};
 
 export default ErrorList;

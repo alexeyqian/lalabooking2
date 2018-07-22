@@ -1,13 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
-//import {Link} from 'react-router-dom';
-import moment from 'moment';
-import * as actions from '../actions';
-import PostApi from '../../../apiClient/PostApi';
-import * as ajaxStatusActions from '../../../actions/ajaxStatusActions';
-
 
 class PostDetailPage extends React.Component {
   constructor(props, context) {
@@ -20,8 +12,8 @@ class PostDetailPage extends React.Component {
   }
 
   componentWillMount() {
-    const post = this.props.actions.loadPostById(this.props.id);
-    this.setState({post});
+    //const post = this.props.actions.loadPostById(this.props.id);
+    //this.setState({post});
   }
 
   render() {
@@ -40,22 +32,7 @@ class PostDetailPage extends React.Component {
 }
 
 PostDetailPage.propTypes = {
-  id: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired
+  id: PropTypes.string.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
-
-  return {
-    id: ownProps.match.params.id,
-    post: state.post
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostDetailPage);
+export default PostDetailPage;
