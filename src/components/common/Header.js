@@ -9,7 +9,7 @@ const Header = ({loading, user, onLogout}) => {
   const isLoggedIn = user && user.isLoggedIn;
 
   return (
-
+    <div className="container">
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
       <NavLink to="/" className="navbar-brand">Lala Booking</NavLink>
       {loading && <LoadingDots interval={100} dots={20}/>}
@@ -48,7 +48,7 @@ const Header = ({loading, user, onLogout}) => {
         </ul>
       </div>
     </nav>
-
+    </div>
 
   );
 };

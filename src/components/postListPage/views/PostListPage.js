@@ -38,14 +38,6 @@ class PostListPage extends React.Component {
   }
 
   render() {
-    //const {posts} = this.state;
-    /*let postList = null;
-    if(!this.state.loading){
-      if(posts && posts.length > 0)
-        postList = <PostList posts={posts} />;
-      else
-        postList = <div>Not found</div>;
-    }*/
 
     return (
       <div>
@@ -57,13 +49,13 @@ class PostListPage extends React.Component {
 
       </div>
     );
+
   }
 }
 
 
 PostListPage.propTypes = {
-  history: PropTypes.object.isRequired,
-  //actions: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired
 };
 
 export default PostListPage;

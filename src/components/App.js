@@ -15,6 +15,7 @@ import HotelDetailPage from './hotelDetailPage/views/HotelDetailPage';
 import OrderPage from './orderPage/views/OrderPage';
 import PaymentPage from './payment/PaymentPage';
 import {view as PostListPage} from './postListPage';
+import {view as PostDetailPage} from './postDetailPage';
 
 class App extends React.Component {
 
@@ -37,7 +38,7 @@ class App extends React.Component {
     return (
       <div >
 
-        <div className="container bg-light">
+        <div className="bg-light">
           <Header loading={this.props.loading} user={user} onLogout={this.handleLogout} />
         </div>
 
@@ -47,6 +48,7 @@ class App extends React.Component {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/posts" component={PostListPage} />
+            <Route exact path="/posts/:slug" component={PostDetailPage} />
             <Route path="/hotels" component={HotelSearchPage} />
             <Route path="/hotel/:id" component={HotelDetailPage}/>
             <Route path="/about" component={AboutPage} />

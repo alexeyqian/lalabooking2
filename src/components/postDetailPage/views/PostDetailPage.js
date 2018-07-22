@@ -1,38 +1,51 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
 class PostDetailPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
+      loading: false,
       post: {}
     };
 
   }
 
-  componentWillMount() {
-    //const post = this.props.actions.loadPostById(this.props.id);
-    //this.setState({post});
+  componentDidMount() {
+    this.setState({loading: true});
+
+    const {slug} = this.props.match.params;
+    axios.get('/api/v1/posts/' + slug)
+      .then((res) => {
+        this.setState({post: res.data.data});
+      })
+      .catch((err) => {
+        alert(JSON.stringify(err));
+      })
+      .then(() => { // always run, equal to finally{}
+        this.setState({loading: false});
+      });
   }
 
   render() {
-
-    if(this.state.post)
+    const {post} = this.state;
+    if(!post)
       return null;
 
     return (
 
       <div className="row">
+        {this.state.loading &&
+        <div className="loader" />
+        }
 
+        <h1>{post.title}</h1>
+        <p>{post.body}</p>
       </div>
 
     );
   }
 }
-
-PostDetailPage.propTypes = {
-  id: PropTypes.string.isRequired
-};
 
 export default PostDetailPage;
