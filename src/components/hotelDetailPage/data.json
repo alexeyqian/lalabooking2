@@ -1,0 +1,134 @@
+{
+  "Code": "0",
+  "Result": {
+    "Count": 1,
+    "Hotels": [
+      {
+        "HotelId": "40101006",
+        "LowRate": 1.5,
+        "CurrencyCode": "RMB",
+        "Distance": 0,
+        "BookingRules": [
+          {
+            "BookingRuleId": 94112,
+            "TypeCode": "PerRoomPerName",
+            "DateType": "BookDay",
+            "StartDate": "2014-02-13T00:00:00 08:00",
+            "EndDate": "2064-02-13T00:00:00 08:00",
+            "StartHour": "00:00:00",
+            "EndHour": "23:59:00",
+            "Description": "酒店要求每个房间至少提供一名入住客人的姓名"
+          }
+        ],
+        "GuaranteeRules": [
+          {
+            "GuranteeRuleId": 18915459,
+            "DateType": "CheckInDay",
+            "StartDate": "2017-02-10T00:00:00 08:00",
+            "EndDate": "2018-02-10T00:00:00 08:00",
+            "WeekSet": "1,2,3,4,5,6,7,",
+            "IsTimeGuarantee": false,
+            "StartTime": "18:00",
+            "EndTime": "06:00",
+            "IsTomorrow": true,
+            "IsAmountGuarantee": false,
+            "Amount": 5,
+            "GuaranteeType": "FirstNightCost",
+            "ChangeRule": "NoChange",
+            "Day": "2017-03-10T00:00:00 08:00",
+            "Time": "18:00",
+            "Hour": 6,
+            "Description": "担保条件：在17.02.10至18.02.10入住需要您提供信用卡担保。预订后无法变更取消，如未入住，将扣除第一晚房费作为违约金。"
+          }
+        ],
+        "PrepayRules": [
+          {
+            "PrepayRuleId": 8,
+            "DateType": "CheckInDay",
+            "StartDate": "2017-02-01T00:00:00 08:00",
+            "EndDate": "2020-12-31T00:00:00 08:00",
+            "WeekSet": "1,2,3,4,5,6,7,",
+            "ChangeRule": "PrepayNoChange",
+            "CashScaleFirstAfter": "FristNight",
+            "CashScaleFirstBefore": "FristNight",
+            "DateNum": "2017-03-20T00:00:00 08:00",
+            "Time": "18:00",
+            "DeductFeesAfter": 1,
+            "DeductFeesBefore": 0,
+            "DeductNumAfter": 0,
+            "DeductNumBefore": 0,
+            "Hour": 24,
+            "Hour2": 0,
+            "Description": "预付规则：在17.02.01 到20.12.31期间入住，需要提供信用卡预付全额房费。一经预订成功不可变更/取消。"
+          }
+        ],
+        "ValueAdds": [],
+        "DrrRules": [],
+        "Rooms": [
+          {
+            "RoomId": "1163",
+            "Name": "主楼标准客房invoice",
+            "RatePlans": [
+              {
+                "Status": true,
+                "CustomerType": "All",
+                "CurrentAlloment": 0,
+                "InstantConfirmation": true,
+                "IsLastMinuteSale": false,
+                "StartTime": "00:00:00",
+                "EndTime": "23:59:00",
+                "TotalRate": 1000,
+                "AverageRate": 1000,
+                "CurrencyCode": "RMB",
+                "Coupon": 0,
+                "NightlyRates": [
+                  {
+                    "Member": 1000,
+                    "Cost": -1,
+                    "Status": true,
+                    "AddBed": -1,
+                    "Date": "2017-03-21T00:00:00 08:00",
+                    "BreakfastCount": 0,
+                    "coupon": 0
+                  }
+                ],
+                "BookingRuleIds": "",
+                "PrepayRuleIds": "6",
+                "ValueAddIds": "",
+                "RoomTypeId": "1163",
+                "HotelCode": "40101006",
+                "InvoiceMode": "Hotel",
+                "BookingChannels": "1,2,3",
+                "CooperationType": 1,
+                "RatePlanId": 484311,
+                "RatePlanName": "预付RP3",
+                "MinAmount": 1,
+                "MinDays": 1,
+                "MaxDays": 365,
+                "PaymentType": "Prepay"
+              }
+            ]
+          }
+        ],
+        "Gifts": [
+          {
+            "GiftId": 1128,
+            "StartDate": "2017-03-20T00:00:00 08:00",
+            "EndDate": "2017-03-20T00:00:00 08:00",
+            "DateType": "CheckinDate",
+            "WeekSet": "1,2,3,4,5,6,7",
+            "GiftContent": "礼包测试",
+            "GiftTypes": "",
+            "HourNumber": 0,
+            "HourType": "Hours24",
+            "WayOfGiving": "EveryRoom",
+            "WayOfGivingOther": "",
+            "Description": "2016年08月01日至2017年08月31日期间入住，每间房包含一次：礼包测试"
+          }
+        ],
+        "HAvailPolicys": []
+      }
+    ]
+  },
+  "Guid": "d20e71b0-5a04-44eb-b69e-d8a45f4b6b06"
+}
